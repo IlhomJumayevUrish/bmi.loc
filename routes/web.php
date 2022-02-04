@@ -1,6 +1,8 @@
 <?php
-use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RoleController;
+use Illuminate\Support\Facades\Route;
+Route::get('role/',[RoleController::class,'index']);
 Route::get('/', function () {
 	return redirect('/dashboard/v2');
 });

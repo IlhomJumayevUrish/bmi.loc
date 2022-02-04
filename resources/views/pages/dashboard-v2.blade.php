@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Dashboard V2')
+@section('title', 'Main')
 @push('css')
 	<link href="/assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="/assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
