@@ -15,7 +15,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $about=About::all()->first();
+        return view('about/index',[
+            'about'=>$about,
+        ]);
     }
 
     /**
@@ -68,7 +71,7 @@ class AboutController extends Controller
      * @param  \App\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request)
     {
         //
     }

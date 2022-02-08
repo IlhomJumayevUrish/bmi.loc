@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\News;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreNewsRequest;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -15,7 +16,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news=News::all();
+        return view('news/news-index',[
+            'news'=>$news,
+        ]);
     }
 
     /**
@@ -25,7 +29,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('news/news-add');
     }
 
     /**
@@ -34,9 +38,10 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreNewsRequest $request)
     {
-        //
+        News::create($request);
+        return redirect()->route('news-index');
     }
 
     /**
@@ -45,9 +50,13 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news)
+    public function show($id)
     {
-        //
+        $news=News::find($id);
+  
+        return view('news/news-show',[
+            'news'=>$news,
+        ]);
     }
 
     /**
@@ -56,9 +65,12 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
-    {
-        //
+    public function edit($id)
+    {     
+        $news=News::find($id);
+        return view('news/news-edit',[
+            'news'=>$news,
+        ]);
     }
 
     /**
@@ -68,9 +80,10 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, $id)
     {
-        //
+        News::edit($request,$id);
+        return redirect()->route('news-index');
     }
 
     /**
@@ -79,8 +92,10 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $news=News::find($id);
+        $news->delete();
+        return redirect()->route('news-index');
     }
 }

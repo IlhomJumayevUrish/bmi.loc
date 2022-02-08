@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration
             $table->dateTime('when_issued')->nullable();
             $table->string('password_image')->nullable();
             $table->unsignedBigInteger('country_id')->nullable();
-            $table->foreign('country_id')->references('id')->on('abouts');
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->rememberToken();
             $table->timestamps();
         });

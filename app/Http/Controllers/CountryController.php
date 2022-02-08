@@ -15,7 +15,10 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries=Country::all();
+        return response()->json([
+            'countries'=>$countries,
+        ]);
     }
 
     /**
@@ -45,9 +48,12 @@ class CountryController extends Controller
      * @param  \App\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function show(Country $country)
+    public function show($id)
     {
-        //
+        $country=Country::find($id);
+        return response()->json([
+            'country'=>$country->regions,
+        ]);
     }
 
     /**

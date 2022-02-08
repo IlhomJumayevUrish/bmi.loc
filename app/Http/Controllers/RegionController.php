@@ -15,7 +15,9 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'regions'=> Region::all(),
+        ]);
     }
 
     /**
@@ -45,9 +47,11 @@ class RegionController extends Controller
      * @param  \App\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function show(Region $region)
+    public function show($id)
     {
-        //
+        return response()->json([
+            'region'=> Region::find($id)->districts,
+        ]);
     }
 
     /**
