@@ -38,35 +38,62 @@ $sidebarClass = (!empty($sidebarTransparent)) ? 'sidebar-transparent' : '';
 				</a></li>
 			<li class="{{ Request::is('*about*') ? 'active' : '' }}"><a href="{{ route('about-index')}}">
 					<i class="fas fa-home fa-fw"></i>
-					<span>Насчет нас +</span>
+					<span>Насчет нас</span>
 				</a></li>
 			<li class="{{ Request::is('*message*') ? 'active' : '' }}"><a href="#">
 					<i class="fas fa-sliders-h"></i>
 					<span>Слайдеры +</span>
 				</a></li>
-
-			<li class="{{ Request::is('*message*') ? 'active' : '' }}"><a href="#">
-					<i class="fab fa-lg fa-fw m-r-10 fa-facebook-messenger"></i>
-					<span>Контакты +</span>
-				</a></li>
-			<li class="{{ Request::is('*message*') ? 'active' : '' }}"><a href="#">
-					<i class="fas fa-users"></i>
-					<span>Партнеры +</span>
-				</a></li>
-			<li class="{{ Request::is('*message*') ? 'active' : '' }}"><a href="#">
+			<li class="{{ Request::is('*product*') ? 'active' : '' }}"><a href="{{ route('product-index')}}">
 					<i class="fas fa-shopping-bag"></i>
-					<span>Продукты +</span>
+					<span>Продукты</span>
 				</a></li>
+			<li class="{{ Request::is('*service*') ? 'active' : '' }}"><a href="{{ route('service-index')}}">
+					<i class="far fa-lg fa-fw m-r-10 fa-handshake"></i>
+					<span>Услуга</span>
+				</a></li>
+			<li class="{{ Request::is('*user/contact*') ? 'active' : '' }}"><a href="{{route('contact-user-index')}}">
+					<i class="fab fa-lg fa-fw m-r-10 fa-facebook-messenger"></i>
+					<span>Контакты</span>
+				</a></li>
+			<li class="{{ Request::is('*partner*') ? 'active' : '' }}"><a href="{{ route('partner-index')}}">
+					<i class="fas fa-users"></i>
+					<span>Партнеры</span>
+				</a></li>
+
+			@if(session()->get('admin_type') == "admin")
 			<li class="{{ Request::is('*employee*') ? 'active' : '' }}"><a href="{{ route('employee-index')}}">
 					<i class="fa fa-users"></i>
-					<span>Сотрудники</span>
+					<span>Пользователи</span>
 				</a></li>
-			<li class="{{ Request::is('*contact*') ? 'active' : '' }}"><a href="{{ route('contact-index')}}">
+			@endif
+			<li class="{{ Request::is('*social/contact*') ? 'active' : '' }}"><a href="{{ route('contact-index')}}">
 					<i class="fa fa-phone"></i>
 					<span>Социальные сети</span>
 				</a></li>
 
+			<li class="has-sub expand">
+				<a href="javascript:;">
+					<b class="caret"></b>
+					<i class="fas fa-cog fa-fw"></i>
+					<span>Настройки</span>
+				</a>
+				<ul class="sub-menu" style="display: block;">
+					<li class=" ">
+						<a href="/dashboard/v3">Categories</a>
+					</li>
+					<li class=" ">
+						<a href="/dashboard/v1">Countries</a>
+					</li>
+					<li class=" ">
+						<a href="/dashboard/v2">Regions</a>
 
+					</li>
+					<li class=" ">
+						<a href="/dashboard/v3">Districts</a>
+					</li>
+				</ul>
+			</li>
 
 
 

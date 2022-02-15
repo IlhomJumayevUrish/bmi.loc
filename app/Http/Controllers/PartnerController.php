@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Partner;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdatePartnerRequest;
+use App\PublicMethod;
 use Illuminate\Http\Request;
 
 class PartnerController extends Controller
@@ -15,7 +18,10 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
+        $partners=Partner::all();
+        return view('partners/index',[
+            'partners'=>$partners,
+        ]);
     }
 
     /**
@@ -36,7 +42,15 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $partner=new Partner();
+        $partner->title=$request->title;
+        $partner->url=$request->url;
+        if ($file = $request->file('image')) {
+         
+            $partner->image = PublicMethod::uploadImage($file, 'partners');
+        }
+        $partner->save();
+        return redirect()->route('partner-index');
     }
 
     /**
@@ -68,9 +82,17 @@ class PartnerController extends Controller
      * @param  \App\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partner $partner)
+    public function update(UpdatePartnerRequest $request,$id)
     {
-        //
+        $partner = Partner::find($id);
+        $partner->title = $request->title;
+        $partner->url = $request->url;
+        if ($file = $request->file('image')) {
+
+            $partner->image = PublicMethod::uploadImage($file, 'partners',$partner->image);
+        }
+        $partner->save();
+        return redirect()->route('partner-index');
     }
 
     /**
@@ -79,8 +101,10 @@ class PartnerController extends Controller
      * @param  \App\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Partner $partner)
+    public function destroy($id)
     {
-        //
+        $partner=Partner::find($id);
+        $partner->delete();
+        return redirect()->route('partner-index');
     }
 }

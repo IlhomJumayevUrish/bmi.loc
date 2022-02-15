@@ -1,6 +1,6 @@
 @extends('layouts.default')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-@section('title', 'Employee Update')
+@section('title', 'Изменить пользователя')
 
 @section('content')
 
@@ -13,12 +13,10 @@
         <div class="panel panel-inverse" data-sortable-id="form-validation-1">
             <!-- begin panel-heading -->
             <div class="panel-heading">
-                <h4 class="panel-title">Update Employee</h4>
+                <h4 class="panel-title">Изменить пользователя</h4>
                 <div class="panel-heading-btn">
+                    <a href="{{ route('employee-index')}}" class="btn btn-xs btn-icon btn-circle btn-default"><i class="fa fa-hand-point-left"></i></a>
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                 </div>
             </div>
             <!-- end panel-heading -->
@@ -27,105 +25,109 @@
                 <form class="form-horizontal" data-parsley-validate="true" name="demo-form" action="{{ route('employee-update',$user->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="fullname">Full name<span class="text-red">*</span></label>
-                            <input class="form-control" type="text" id="fullname" value="{{ old('fio',$user->fio)}}" name="fio" placeholder="full name" data-parsley-required="true" />
+                        <div class="col-md-4">
+                            <label for="fullname">Полное имя<span class="text-red">*</span></label>
+                            <input class="form-control" type="text" id="fullname" value="{{ old('fio',$user->fio)}}" name="fio" placeholder="Полное имя" data-parsley-required="true" />
                             <span id="image" style="color:red">@error('fio'){{$message}}@enderror</span>
 
                         </div>
-                        <div class="col-md-6">
-                            <label for="username">Username<span class="text-red">*</span></label>
-                            <input class="form-control" type="text" id="username" value="{{ old('username',$user->username)}}" name="username" placeholder="username" data-parsley-required="true" />
-                            <span id="image" style="color:red">@error('username'){{$message}}@enderror</span>
-
+                        <div class="col-md-4">
+                            <label for="email">Электронное письмо<span class="text-red">*</span></label>
+                            <input class="form-control" type="text" id="email" value="{{ old('email',$user->email)}}" name="email" placeholder="email@gamil.com" data-parsley-required="true" />
+                            <span id="image" style="color:red">@error('email'){{$message}}@enderror</span>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="phone">Phone<span class="text-red">*</span></label>
+
+                        <div class="col-md-4">
+                            <label for="phone">Телефон<span class="text-red">*</span></label>
                             <input class="form-control" type="text" id="phone" value="{{ old('phone',$user->phone)}}" name="phone" placeholder="+998903306022" data-parsley-required="true" />
                             <span id="image" style="color:red">@error('phone'){{$message}}@enderror</span>
                         </div>
-                        <div class="col-md-6">
-                            <label for="email">Email<span class="text-red">*</span></label>
-                            <input class="form-control" type="text" id="email" value="{{ old('email',$user->email)}}" name="email" placeholder="email@gamil.com" data-parsley-required="true" />
-                            <span id="image" style="color:red">@error('email'){{$message}}@enderror</span>
-
-                        </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="country">Country<span class="text-red">*</span></label>
-                            <select class="form-control" name="country" onchange="getCountry(this.options[this.selectedIndex].value)">
-                                @foreach($countries as $country)
-                                <option value="{{$country->id}}" {{$country->id==$user->country_id?'selected':''}}>{{$country->name}}</option>
-                                @endforeach
-                            </select>
-                            <span id="image" style="color:red">@error('country'){{$message}}@enderror</span>
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="username">Имя пользователя<span class="text-red">*</span></label>
+                                    <input class="form-control" type="text" id="username" value="{{ old('username',$user->username)}}" name="username" placeholder="Имя пользователя" data-parsley-required="true" />
+                                    <span id="image" style="color:red">@error('username'){{$message}}@enderror</span>
 
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="password">Пароль<span class="text-red">*</span></label>
+                                    <input class="form-control" type="password" id="password" name="password" />
+                                    <span id="image" style="color:red">@error('password'){{$message}}@enderror</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="password_confirmation">Подтверждение пароля<span class="text-red">*</span></label>
+                                    <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" />
+                                    <span id="image" style="color:red">@error('password_confirmation'){{$message}}@enderror</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="country">Страна<span class="text-red">*</span></label>
+                                    <select class="form-control" name="country" onchange="getCountry(this.options[this.selectedIndex].value)">
+                                        @foreach($countries as $country)
+                                        <option value="{{$country->id}}">{{$country->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <span id="image" style="color:red">@error('country'){{$message}}@enderror</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="region">Область<span class="text-red">*</span></label>
+                                    <select class="form-control" name="region" id="regions" onchange="getRegion(this.options[this.selectedIndex].value)">
+                                        @foreach($countries->first()->regions as $region)
+                                        <option value=" {{$region->id}}">{{$region->name}}</option>
+                                        @endforeach
+                                    </select>
+                                    <span id="image" style="color:red">@error('region'){{$message}}@enderror</span>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="district">Округ<span class="text-red">*</span></label>
+                                    <select class="form-control" name="district" id="districts">
+                                        @foreach($countries->first()->regions->first()->districts as $district)
+                                        <option value="{{$district->id}}">{{$district->name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                    <span id="image" style="color:red">@error('district'){{$message}}@enderror</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="status">Статус<span class="text-red">*</span></label>
+                                    <select class="form-control" name="status">
+                                        <option value="active">Активный</option>
+                                        <option value="inactive">Неактивный</option>
+                                    </select>
+                                    <span id="image" style="color:red">@error('status'){{$message}}@enderror</span>
+
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
+                                    <button type="submit" class="btn btn-primary w-100">Отправить</button>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="col-md-6">
-                            <label for="status">Status<span class="text-red">*</span></label>
-                            <select class="form-control" name="status">
-                                <option value="active" {{$user->status=='active'?'selected':''}}>Active</option>
-                                <option value="inactive" {{$user->status=='inactive'?'selected':''}}>Inactive</option>
-
-                            </select>
-                            <span id="image" style="color:red">@error('status'){{$message}}@enderror</span>
-
+                        <div class="col-md-3">
+                            <label class="col-form-label" for="image">Фото<span class="text-red">*</span></label>
+                            <a href="#" onclick="upload_image()">
+                                @if($user->photo)
+                                <img src="{{$user->photo}}" alt="" id="blah" class="w-100">
+                                @else
+                                <img src="/assets/img/gallery/add.png" alt="" id="blah" class="w-100">
+                                @endif
+                                <input type="file" name="photo" id="upload_image" style="display: none;" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                <span id="photo" style="color:red">@error('photo'){{$message}}@enderror</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="row">
 
-                        <div class="col-md-6">
-                            <label for="region">Region<span class="text-red">*</span></label>
-                            <select class="form-control" name="region" id="regions" onchange="getRegion(this.options[this.selectedIndex].value)">
-                                @foreach($countries->where('id',$user->country_id)->first()->regions as $region)
-                                <option value=" {{$region->id}}" {{$region->id==$user->region_id?'selected':''}}> {{$region->name}}</option>
-                                @endforeach
-                            </select>
-                            <span id="image" style="color:red">@error('region'){{$message}}@enderror</span>
-
-                        </div>
-                        <div class="col-md-6">
-                            <label for="password">Password<span class="text-red">*</span></label>
-                            <input class="form-control" type="password" id="password" name="password" />
-                            <span id="image" style="color:red">@error('password'){{$message}}@enderror</span>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="district">District<span class="text-red">*</span></label>
-                            <select class="form-control" name="district" id="districts">
-                                @foreach($countries->where('id',$user->country_id)->first()->regions->where('id',$user->region_id)->first()->districts as $district)
-                                <option value="{{$district->id}}" {{$district->id==$user->district_id?'selected':''}}>{{$district->name}}</option>
-                                @endforeach
-
-                            </select>
-                            <span id="image" style="color:red">@error('district'){{$message}}@enderror</span>
-
-                        </div>
-                        <div class="col-md-6">
-                            <label for="password_confirmation">Password confirmation<span class="text-red">*</span></label>
-                            <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" />
-                            <span id="image" style="color:red">@error('password_confirmation'){{$message}}@enderror</span>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group row m-b-15 mt-3">
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="photo" /><br />
-                            <span id="photo" style="color:red">@error('photo'){{$message}}@enderror</span>
-                        </div>
-
-                        <div class="col-md-2 col-sm-2 right">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
-                    </div>
                 </form>
             </div>
             <!-- end panel-body -->
@@ -145,6 +147,10 @@
 <script src="/assets/js/demo/render.highlight.js"></script>
 @endpush
 <script>
+    function upload_image() {
+        document.getElementById('upload_image').click();
+    }
+
     function getCountry(id) {
         $.get('/countries/show/' + id, function(district) {
             var x = '';

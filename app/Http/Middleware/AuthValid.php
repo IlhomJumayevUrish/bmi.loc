@@ -20,7 +20,7 @@ class AuthValid
         $user= User::find(Session::get('admin_id'));
         // dd($user->role->name);
         if($user){
-            if ($user->role->name != "admin") {
+            if ($user->role->name != "admin"  and   $user->role->name != "staff") {
                 return redirect('login');
             }
             else{

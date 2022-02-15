@@ -1,5 +1,6 @@
 @extends('layouts.default')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="/assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css" rel="stylesheet" />
 @section('title', 'Добавить новость')
 
 @section('content')
@@ -15,48 +16,62 @@
 			<div class="panel-heading">
 				<h4 class="panel-title">Добавить новость</h4>
 				<div class="panel-heading-btn">
+					<a href="{{ route('news-index')}}" class="btn btn-xs btn-icon btn-circle btn-default"><i class="fa fa-hand-point-left"></i></a>
 					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 				</div>
 			</div>
 			<!-- end panel-heading -->
 			<!-- begin panel-body -->
 			<div class="panel-body">
-				<form class="form-horizontal" data-parsley-validate="true" name="demo-form" action="{{ route('news-store')}}" method="POST" enctype="multipart/form-data">
+				<form class="form-horizontal" data-parsley-validate="true" name="demo-form " action="{{ route('news-store')}}" method="POST" enctype="multipart/form-data">
 					@csrf
-					<label class="col-md-12 col-form-label" for="fullname">Title<span class="text-red">*</span></label>
-					<div class="col-md-12 ">
-						<input class="form-control" type="text" id="fullname" value="{{ old('title')}}" name="title" placeholder="Title" data-parsley-required="true" />
-					</div>
 					<div class="row">
-						<div class="col-md-6">
-							<label class="col-md-12  col-form-label" for="message">Type<span class="text-red">*</span></label>
-							<div class="col-md-12 ">
-								<input class="form-control" type="text" id="digits" value="{{ old('type')}}" name="type" data-parsley-required="true" placeholder="Type" />
+						<div class="col-md-10">
+
+							<div class="row">
+								<div class="col-md-12">
+
+									<label class="col-md-12 col-form-label" for="fullname">Заголовок<span class="text-red">*</span></label>
+									<div class="col-md-12 ">
+										<input class="form-control" type="text" id="fullname" value="{{ old('title')}}" name="title" placeholder="Заголовок" data-parsley-required="true" />
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<label class="col-md-12 col-form-label" for="message">Key<span class="text-red">*</span></label>
-							<div class="col-md-12 ">
-								<input class="form-control" type="text" id="digits" value="{{ old('key')}}" name="key" data-parsley-required="true" placeholder="Key" />
+							<div class="row">
+								<div class="col-md-6">
+									<label class="col-md-12  col-form-label" for="message">Тип<span class="text-red">*</span></label>
+									<div class="col-md-12 ">
+										<input class="form-control" type="text" id="digits" value="{{ old('type')}}" name="type" data-parsley-required="true" placeholder="Тип" />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<label class="col-md-12 col-form-label" for="message">Ключ<span class="text-red">*</span></label>
+									<div class="col-md-12 ">
+										<input class="form-control" type="text" id="digits" value="{{ old('key')}}" name="key" data-parsley-required="true" placeholder="Ключ" />
+									</div>
+
+								</div>
 							</div>
 
 						</div>
-					</div>
-
-					<label class="col-md-1 col-sm-1 col-form-label">Description<span class="text-red">*</span></label>
-					<div class="col-md-12 col-sm-12">
-						<textarea class="form-control" required id="message" name="description" rows="4" placeholder="Description...">{{ old('description')}}</textarea>
+						<div class="col-md-2">
+							<label class="col-form-label" for="image">Фото<span class="text-red">*</span></label>
+							<a href="#" onclick="upload_image()">
+								<img src="/assets/img/gallery/add.png" alt="" id="blah" class="w-100">
+								<input type="file" required name="image" id="upload_image" style="display: none;" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+								<span id="photo" style="color:red">@error('image'){{$message}}@enderror</span>
+							</a>
+						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-10 mt-3 pl-4">
-							<input class="form-control" type="file" name="image" /><br />
-							<span id="image" style="color:red">@error('image'){{$message}}@enderror</span>
+						<div class="col-md-12 col-sm-12">
+							<textarea class="textarea form-control" id="wysihtml5" required name="description" rows="4" placeholder="описание...">{{ old('description')}}</textarea>
 						</div>
-						<div class="col-md-2 mt-3  right">
-							<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 mt-3  right">
+							<button type="submit" class="btn btn-primary w-100">Отправить</button>
 						</div>
 					</div>
 
@@ -72,9 +87,16 @@
 </div>
 <!-- end row -->
 @endsection
-
+<script>
+	function upload_image() {
+		document.getElementById('upload_image').click();
+	}
+</script>
 @push('scripts')
 <script src="/assets/plugins/parsleyjs/dist/parsley.min.js"></script>
 <script src="/assets/plugins/highlight.js/highlight.min.js"></script>
 <script src="/assets/js/demo/render.highlight.js"></script>
+<script src="/assets/plugins/ckeditor/ckeditor.js"></script>
+<script src="/assets/plugins/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="/assets/js/demo/form-wysiwyg.demo.js"></script>
 @endpush

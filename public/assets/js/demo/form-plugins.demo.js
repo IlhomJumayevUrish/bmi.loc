@@ -38,7 +38,13 @@ var handleDatepicker = function() {
 	$('.input-daterange').datepicker({
 		todayHighlight: true
 	});
-	$('#datepicker-disabled-past').datepicker({
+	$('#datepicker-disabled-past1').datepicker({
+		todayHighlight: true
+	});
+	$('#datepicker-disabled-past2').datepicker({
+		todayHighlight: true
+	});
+	$('#datepicker-disabled-past3').datepicker({
 		todayHighlight: true
 	});
 	$('#datepicker-autoClose').datepicker({

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use App\Http\Controllers\Controller;
+use App\PublicMethod;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products=Product::where('type','product')->get();
+        return view('product/index',[
+            'products'=>$products,
+        ]);
     }
 
     /**
@@ -25,7 +30,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $cate=Category::where('type','product')->get();
+        return view('product/add',[
+            'categories'=>$cate,
+        ]);
     }
 
     /**
@@ -36,7 +44,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product=new Product();
+        $product->name=$request->name;
+        $product->url=$request->url;
+        $product->category_id=$request->category;
+        $product->type='product';
+        $product->description=$request->description;
+        if ($file = $request->file('image')) {
+          
+            $product->photo = PublicMethod::uploadImage($file,'products');
+        }
+        if ($file = $request->file('file')) {
+          
+            $product->file =PublicMethod::uploadImage($file,'products/file');
+        }
+        $product->save();
+        return redirect()->route('product-index');
     }
 
     /**
@@ -56,9 +79,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product=Product::find($id);
+        $cate = Category::where('type', 'product')->get();
+        return view('product/update', [
+            'categories' => $cate,
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -68,19 +96,33 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->url = $request->url;
+        $product->category_id = $request->category;
+        $product->description = $request->description;
+        if ($file = $request->file('image')) {
+           
+            $product->photo = PublicMethod::uploadImage($file,'products',$product->image);
+        }
+        if ($file = $request->file('file')) {
+            $product->file = PublicMethod::uploadImage($file, 'products',$product->file);
+        }
+        $product->save();
+        return redirect()->route('product-index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        $product->delete();
+        return redirect()->route('product-index');
     }
 }

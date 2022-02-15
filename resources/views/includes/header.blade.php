@@ -15,7 +15,7 @@ $headerTopMenu = (!empty($headerTopMenu)) ? $headerTopMenu : '';
 			<span class="icon-bar"></span>
 		</button>
 		@endif
-		<a href="{{ route('news-index')}}" class="navbar-brand"><span class="navbar-logo"></span> <b>Панель администратора</b> </a>
+		<a href="{{ route('news-index')}}" class="navbar-brand"><span class="navbar-logo"></span> <b>Администратор</b> </a>
 		@if ($headerMegaMenu)
 		<button type="button" class="navbar-toggle pt-0 pb-0 mr-0" data-toggle="collapse" data-target="#top-navbar">
 			<span class="fa-stack fa-lg text-inverse">
@@ -53,7 +53,7 @@ $headerTopMenu = (!empty($headerTopMenu)) ? $headerTopMenu : '';
 
 	<!-- begin header-nav -->
 	<ul class="navbar-nav navbar-right W-20">
-		<li class="dropdown navbar-language">
+		<!-- <li class="dropdown navbar-language">
 			<a href="#" class="dropdown-toggle pr-1 pl-1 pr-sm-3 pl-sm-3" data-toggle="dropdown">
 				<span class="flag-icon flag-icon-us" title="us"></span>
 				<span class="name d-none d-sm-inline">EN</span> <b class="caret"></b>
@@ -65,14 +65,14 @@ $headerTopMenu = (!empty($headerTopMenu)) ? $headerTopMenu : '';
 				<div class="dropdown-divider"></div>
 
 			</div>
-		</li>
+		</li> -->
 		<li class="dropdown navbar-user">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<img src="{{session()->get('admin_photo')}}" alt="" />
 				<span class="d-none d-md-inline">{{session()->get('admin_fio')}}</span> <b class="caret"></b>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right">
-				<a href="javascript:;" class="dropdown-item"> <i class="fa fa-user"> </i> Profile</a>
+				<a href="{{ route('profile')}}" class="dropdown-item"> <i class="fa fa-user fa-lg fa-fw m-r-10"> </i> Profile </a>
 				<div class="dropdown-divider"></div>
 				<a href="{{route('logout')}}" class="dropdown-item"><i class="fas fa-lg fa-fw m-r-10 fa-sign-out-alt"></i> Log out</a>
 			</div>

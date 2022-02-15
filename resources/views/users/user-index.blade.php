@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Список сотрудников')
+@section('title', 'Список пользователей')
 
 @push('css')
 <link href="/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
@@ -15,9 +15,9 @@
 <div class="panel panel-inverse">
     <!-- begin panel-heading -->
     <div class="panel-heading">
-        <h1 class="panel-title">Список сотрудников</h1>
+        <h1 class="panel-title">Список пользователей</h1>
         <div class="panel-heading-btn">
-            <a href="{{route('employee-create')}}" class="btn btn-icon btn-green m-r-5"><i class="fa fa-plus"></i> </a>
+            <a href="{{route('employee-create')}}" class="btn btn-green btn-xs ">Создайте</a>
         </div>
     </div>
     <!-- end panel-heading -->
@@ -26,8 +26,8 @@
         <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
             <thead>
                 <tr>
-                    <th width="1%"></th>
-                    <th width="1%" data-orderable="false"></th>
+                    <th width="1%">№</th>
+                    <th width="1%" data-orderable="false">Фото</th>
                     <th class="text-nowrap">Полное имя</th>
                     <th class="text-nowrap">Имя пользователя</th>
                     <th class="text-nowrap">Телефон</th>
@@ -43,16 +43,16 @@
                     @if($user->photo)
                     <td class="with-img"><img src="{{$user->photo}}" class="img-rounded height-30" /></td>
                     @else
-                    <td class="with-img"><img src="/assets/img/user/user-3.jpg" class="img-rounded height-30" /></td>
+                    <td class="with-img"><img src="/assets/img/gallery/add.png" class="img-rounded height-30" /></td>
                     @endif
                     <td>{{$user->fio}}</td>
                     <td>{{$user->username}}</td>
                     <td>{{$user->phone}}</td>
                     <td>{{$user->email}}</td>
                     @if($user->status=='active')
-                    <td class="text-green">Active</td>
+                    <td class="text-green">Активный</td>
                     @else
-                    <td class="text-danger">Inactive</td>
+                    <td class="text-danger">Неактивный</td>
                     @endif
                     <td>
                         <a href="#modal-alert{{$loop->index}}" data-toggle="modal" class="btn btn-default btn-icon btn-circle btn-lg">
@@ -73,22 +73,22 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h5 class="media-heading">Пользователь</h5>
+                            </div>
+                            <div class="modal-header">
                                 <div class="media-body">
-                                    <h5 class="media-heading">Наемный рабочий</h5>
                                     <h6><i class="fas fa-user fa-fw text-green"></i> {{$user->username}}</h6>
                                     <h6><i class="fas fa-user fa-fw text-green"></i> {{$user->fio}}</h6>
                                     <h6><i class="fas fa-toggle-on text-green"></i> {{ucfirst($user->status)}}</h6>
                                     <h6><i class="fas fa-home fa-fw text-green"></i> {{$user->country->name}}</h6>
                                     <h6><i class="fas fa-home fa-fw text-green"></i> {{$user->region->name}}</h6>
                                     <h6><i class="fas fa-home fa-fw text-green"></i> {{$user->district->name}}</h6>
-                                    <h6><i class="fas fa-phone fa-fw text-green"></i> {{$user->phone}}</h6>
-                                    <h6><i class="fas fa-envelope fa-fw text-green"></i> {{$user->email}}</h6>
+                                    <h6><i class="fas fa-phone fa-fw text"></i><a href="tel: {{$user->phone}}"> {{$user->phone}}</a></h6>
+                                    <h6><i class="fas fa-envelope fa-fw text"></i> <a href="mailto:{{$user->email}}" target="_top">{{$user->email}}</a></h6>
                                 </div>
                                 <a class="media-right" href="javascript:;">
-                                    <img src="{{$user->photo}}" alt="" class="media-object rounded-corner" width="200" height="200" />
+                                    <img src="{{$user->photo}}" alt="" width="200" />
                                 </a>
-
-
                             </div>
                             <div class="modal-footer">
                                 <a href="javascript:;" class="btn btn-white" data-dismiss="modal">Закрыть</a>

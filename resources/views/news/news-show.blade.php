@@ -1,48 +1,52 @@
 @extends('layouts.default')
 
-@section('title', 'Gallery V1')
-
-@push('css')
-<link href="/assets/plugins/lightbox2/dist/css/lightbox.css" rel="stylesheet" />
-@endpush
+@section('title', 'Насчет нас')
 
 @section('content')
-<!-- begin #gallery -->
-<div id="gallery" class="gallery">
-    <!-- begin image -->
-    <div class="row">
-        <div class="col-md-4 p-5">
-            <div class="w-100">
-                <a href="{{$news->image}}" data-lightbox="gallery-group-4" class="w-100">
-                    <img src="{{$news->image}}" class="w-100" alt="">
-                </a>
+
+<!-- begin row -->
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-md-12">
+        <!-- begin panel -->
+        <div class="panel panel-inverse" data-sortable-id="ui-media-object-2">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">О нас</h4>
+                <div class="panel-heading-btn">
+                    <a href="{{ route('news-index')}}" class="btn btn-xs btn-icon btn-circle btn-default"><i class="fa fa-hand-point-left"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                </div>
             </div>
-        </div>
-        <div class="col-md-8 image">
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <div class="media media-lg">
+                    <a class="media-left" href="javascript:;">
+                        <img src="{{$news->image}}" alt="" class="media-object rounded" />
+                    </a>
+                    <div class="media-body">
+                        <ul class="media-list">
+                            <li class="media media-sm">
+                                <div class="media-body">
+                                    <h5 class="media-heading">{{$news->title}}</h5>
+                                    <p>{!!$news->description!!}</p>
+                                    <p class="m-0"><span>Key: </span> <side>{{$news->keyword}}</side> </p>
+                                    <p class="m-0"><span>Type: </span> <site>{{$news->type}}</site> </p>
 
-            <div class="image-info">
-                <h6> <span>Type:</span>
-                    <cite>{{$news->type}}</cite>
-                </h6>
-                <h6> <span>Key word:</span>
-                    <cite>{{$news->keyword}}</cite>
-                </h6>
-                <h5 class="title">{{$news->title}}</h5>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam magnam fugit ipsum, ex aspernatur sapiente dolore maxime nihil explicabo quo libero eius, minima eum magni mollitia enim quas corporis voluptates.
-                <code>{{$news->created_at}}</code>
+                                </div>
 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <!-- end panel-body -->
         </div>
-
+        <!-- end panel -->
     </div>
-
-    <!-- end image -->
+    <!-- end col-6 -->
 </div>
-<!-- end #gallery -->
-@endsection
+<!-- end row -->
 
-@push('scripts')
-<script src="/assets/plugins/isotope-layout/dist/isotope.pkgd.min.js"></script>
-<script src="/assets/plugins/lightbox2/dist/js/lightbox.min.js"></script>
-<script src="/assets/js/demo/gallery.demo.js"></script>
-@endpush
+@endsection

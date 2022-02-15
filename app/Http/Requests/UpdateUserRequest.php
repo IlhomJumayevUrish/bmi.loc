@@ -24,6 +24,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
             'fio' => 'required|min:4',
             'username' => ['required', Rule::unique('users')->ignore($this->id)],

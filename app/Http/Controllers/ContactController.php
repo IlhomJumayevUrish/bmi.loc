@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreContactRequest;
+use App\Http\Requests\UpdateContactRequest;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\AssignOp\Concat;
 
 class ContactController extends Controller
 {
@@ -15,7 +18,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts=Contact::all();
+        return view('contact_user/index',[
+            'contacts'=>$contacts,
+        ]);
     }
 
     /**
@@ -25,7 +31,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contact_user/add');
     }
 
     /**
@@ -34,9 +40,10 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreContactRequest $request)
     {
-        //
+        Contact::create($request);
+        return redirect()->route('contact-user-index'); 
     }
 
     /**
@@ -56,9 +63,12 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact=Contact::find($id);
+        return view('contact_user/update',[
+             'contact'=>$contact, 
+        ]);
     }
 
     /**
@@ -68,9 +78,10 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(UpdateContactRequest $request, $id)
     {
-        //
+        Contact::updateContact($request,$id);
+        return redirect()->route('contact-user-index');
     }
 
     /**
@@ -79,8 +90,10 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $contact=Contact::find($id);
+        $contact->delete();
+        return redirect()->route('contact-user-index');
     }
 }

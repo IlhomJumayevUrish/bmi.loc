@@ -15,11 +15,7 @@ class SocialContact extends Model
         $contact->url = $request->url;
         $contact->status = $request->status;
         $contact->about_id  = 1;
-        if ($file = $request->file('image')) {
-            $name = $file->getClientOriginalName();
-            $file->move('assets/img/contacts/', $name);
-            $contact->image = '/assets/img/contacts/' . $name;
-        }
+        $contact->image=PublicMethod::uploadImage($request->file('image'), 'contacts');
         $contact->save();
     }
     static  public function edit($request,$id)
@@ -28,10 +24,8 @@ class SocialContact extends Model
         $contact->name = $request->name;
         $contact->url = $request->url;
         $contact->status = $request->status;
-        if ($file = $request->file('image')) {
-            $name = $file->getClientOriginalName();
-            $file->move('assets/img/contacts/', $name);
-            $contact->image = '/assets/img/contacts/' . $name;
+        if($request->file('image')){
+            $contact->image=PublicMethod::uploadImage($request->file('image'), 'contacts', $contact->image);
         }
         $contact->save();
     }

@@ -14,7 +14,7 @@
             <div class="panel-heading">
                 <h4 class="panel-title">Насчет нас</h4>
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-green btn-icon btn-default btn-lg"><i class="fa fa-pencil-alt"></i></a>
+                    <a href="{{ route('about-edit')}}" class="btn btn-green btn-xs ">Редактировать</a>
                 </div>
             </div>
             <!-- end panel-heading -->
@@ -22,22 +22,23 @@
             <div class="panel-body">
                 <div class="media media-lg">
                     <a class="media-left" href="javascript:;">
-                        <img src="/assets/img/gallery/gallery-1.jpg" alt="" class="media-object rounded" />
+                        <img src="{{$about->image}}" alt="" class="media-object rounded" />
                     </a>
                     <div class="media-body">
                         <ul class="media-list">
                             <li class="media media-sm">
                                 <div class="media-body">
                                     <h5 class="media-heading">{{$about->title}}</h5>
-                                    <p>{{$about->description}} <code> {{$about->working_date}} </code></p>
+                                    <p>{!!$about->description!!} <code> {{$about->working_date}} </code></p>
                                     <h6><span>Phone: </span> <a href="tel:{{$about->phone}}">{{$about->phone}}</a> </h6>
                                     <h6><span>Email: </span> <a href="https://{{$about->email}}">{{$about->email}}</a> </h6>
                                     <h6>
-                                        <address> <span>Address: </span> {{$about->address}} ({{$about->coor_x}},{{$about->coor_y}})</address>
+                                        <address> <span>Address: </span> {{$about->address}}</address>
+                                        <address> <span>Koordinata:</span> {{$about->coor_x}},{{$about->coor_y}}</address>
                                     </h6>
                                 </div>
                                 <a class="media-right" href="javascript:;">
-                                    <img src="/assets/img/user/user-9.jpg"  alt="" class="media-object rounded-corner" />
+                                    <img src="{{$about->logo}}" alt="" class="media-object rounded-corner" />
                                 </a>
                             </li>
                         </ul>

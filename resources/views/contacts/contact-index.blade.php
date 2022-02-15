@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Social contact list')
+@section('title', 'Список социальных сетей')
 
 @push('css')
 <link href="/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
@@ -17,9 +17,9 @@
 <div class="panel panel-inverse">
     <!-- begin panel-heading -->
     <div class="panel-heading">
-        <h1 class="panel-title">SOCUIAL CONTACT LIST</h1>
+        <h1 class="panel-title">Список социальных сетей</h1>
         <div class="panel-heading-btn">
-            <a href="{{route('contact-create')}}" class="btn btn-icon btn-green m-r-5"><i class="fa fa-plus"></i></a>
+            <a href="{{route('contact-create')}}" class="btn btn-green btn-xs ">Создайте</a>
         </div>
     </div>
     <!-- end panel-heading -->
@@ -28,12 +28,13 @@
         <table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
             <thead>
                 <tr>
-                    <th width="1%"></th>
-                    <th width="1%" data-orderable="false"></th>
-                    <th class="text-nowrap">Name</th>
-                    <th class="text-nowrap">URL</th>
-                    <th class="text-nowrap">Status</th>
-                    <th class="text-nowrap">Action</th>
+                    <th width="1%">№</th>
+                    <th width="1%" data-orderable="false">Фото</i></th>
+                    <th class="text-nowrap">Название</th>
+                    <th class="text-nowrap">URL-адрес</th>
+                    <th class="text-nowrap">Статус</th>
+                    <th class="text-nowrap" colspan="2">Действие</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -48,9 +49,9 @@
                     <td>{{$contact->name}}</td>
                     <td>{{substr($contact->url,0,50)}}</td>
                     @if($contact->status=='active')
-                    <td class="text-green">Active</td>
+                    <td class="text-green">Активный</td>
                     @else
-                    <td class="text-danger">Inactive</td>
+                    <td class="text-danger">Неактивный</td>
                     @endif
                     <td>
                         <a href="{{ route('contact-edit',$contact->id)}}" class="btn btn-default btn-icon btn-circle btn-lg">

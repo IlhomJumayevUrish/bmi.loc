@@ -17,7 +17,7 @@
 	<div class="panel-heading">
 		<h1 class="panel-title">Список новостей</h1>
 		<div class="panel-heading-btn">
-			<a href="{{route('news-create')}}" class="btn btn-icon btn-green m-r-5"><i class="fa fa-plus"></i></a>
+			<a href="{{route('news-create')}}" class="btn btn-green btn-xs ">Создайте</a>
 		</div>
 	</div>
 	<!-- end panel-heading -->
@@ -26,13 +26,13 @@
 		<table id="data-table-default" class="table table-striped table-bordered table-td-valign-middle">
 			<thead>
 				<tr>
-					<th width="1%"></th>
-					<th width="1%" data-orderable="false"></th>
+					<th width="1%">№</th>
+					<th width="1%" data-orderable="false">Фото</th>
 					<th class="text-nowrap">Заголовок</th>
 					<th class="text-nowrap">Тип</th>
-					<th class="text-nowrap">Description</th>
+					<th class="text-nowrap">Описание</th>
 					<th class="text-nowrap" style="width: 30px;">Дата создания</th>
-					<th class="text-nowrap">Действие</th>
+					<th class="text-nowrap" colspan="2">Действие</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,9 +44,9 @@
 					@else
 					<td class="with-img"><img src="/assets/img/user/user-3.jpg" class="img-rounded height-30" /></td>
 					@endif
-					<td>{{substr($new->title,0,20)}}...</td>
+					<td>{{$new->title}}</td>
 					<td>{{$new->type}}</td>
-					<td>{{substr($new->description,0,25)}}...</td>
+					<td>{!!substr($new->description,0,50)!!}...</td>
 					<td>{{$new->created_at->format('d-m-Y')}}</td>
 					<td>
 						<a href="{{ route('news-show',$new->id)}}" class="btn btn-default btn-icon btn-circle btn-lg">
@@ -83,12 +83,6 @@
 <script src="/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
 <!-- <script src="/assets/js/demo/ui-modal-notification.demo.js"></script> -->
 <script>
-	/*
-Template Name: Color Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
-Version: 4.6.0
-Author: Sean Ngu
-Website: http://www.seantheme.com/color-admin/admin/
-*/
 
 
 	function delete_news(id) {

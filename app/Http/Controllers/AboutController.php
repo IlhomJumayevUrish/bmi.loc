@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\About;
 use App\Http\Controllers\Controller;
+use App\PublicMethod;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -59,9 +60,12 @@ class AboutController extends Controller
      * @param  \App\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit()
     {
-        //
+        $about=About::first();
+        return view('about/update',[
+            'about'=>$about,
+        ]);
     }
 
     /**
@@ -73,7 +77,22 @@ class AboutController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        // dd($request->all());
+        $about=About::first();
+        $about->title=$request->title;
+        $about->address=$request->address;
+        $about->email=$request->email;
+        $about->phone=$request->phone;
+        $about->working_date=$request->working_date;
+        $about->description=$request->description;
+        if ($file = $request->file('image')) {
+            $about->image = PublicMethod::uploadImage($file,'abouts',$about->image);
+        }
+        if ($file = $request->file('logo')) {
+            $about->logo = PublicMethod::uploadImage($file, 'abouts', $about->image);
+        }
+        $about->save();
+        return redirect()->route('about-index');
     }
 
     /**

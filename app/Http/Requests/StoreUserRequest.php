@@ -32,7 +32,7 @@ class StoreUserRequest extends FormRequest
             'region' => 'required',
             'district' => 'required',
             'status' => 'required',
-            'photo' => 'required',
+            'photo' => 'nullable',
             'password' => 'required|min:6',
             'password_confirmation' => 'required|required_with:password|same:password|min:6',
         ];

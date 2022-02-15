@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Srvice;
 use App\Http\Controllers\Controller;
+use App\Product;
+use App\PublicMethod;
 use Illuminate\Http\Request;
 
 class SrviceController extends Controller
@@ -15,7 +18,10 @@ class SrviceController extends Controller
      */
     public function index()
     {
-        //
+        $service=Product::where('type','service')->get();
+        return view('service/index',[
+            'products'=>$service
+        ]);
     }
 
     /**
@@ -25,7 +31,10 @@ class SrviceController extends Controller
      */
     public function create()
     {
-        //
+        $cate = Category::where('type', 'service')->get();
+        return view('service/add', [
+            'categories' => $cate,
+        ]);
     }
 
     /**
@@ -36,7 +45,20 @@ class SrviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product();
+        $product->name = $request->name;
+        $product->url = $request->url;
+        $product->type = 'service';
+        $product->category_id = $request->category;
+        $product->description = $request->description;
+        if ($file = $request->file('image')) {
+            $product->photo = PublicMethod::uploadImage($file, 'products');
+        }
+        if ($file = $request->file('file')) {
+            $product->file = PublicMethod::uploadImage($file, 'products/file');
+        }
+        $product->save();
+        return redirect()->route('service-index');
     }
 
     /**
@@ -56,9 +78,14 @@ class SrviceController extends Controller
      * @param  \App\Srvice  $srvice
      * @return \Illuminate\Http\Response
      */
-    public function edit(Srvice $srvice)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $cate = Category::where('type', 'service')->get();
+        return view('service/update', [
+            'categories' => $cate,
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -68,9 +95,22 @@ class SrviceController extends Controller
      * @param  \App\Srvice  $srvice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Srvice $srvice)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->url = $request->url;
+        $product->category_id = $request->category;
+        $product->description = $request->description;
+        if ($file = $request->file('image')) {
+
+            $product->photo = PublicMethod::uploadImage($file, 'products', $product->image);
+        }
+        if ($file = $request->file('file')) {
+            $product->file = PublicMethod::uploadImage($file, 'products', $product->file);
+        }
+        $product->save();
+        return redirect()->route('service-index');
     }
 
     /**
@@ -79,8 +119,10 @@ class SrviceController extends Controller
      * @param  \App\Srvice  $srvice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Srvice $srvice)
+    public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('service-index');
     }
 }
