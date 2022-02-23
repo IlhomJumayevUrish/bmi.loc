@@ -17,7 +17,7 @@
     <div class="panel-heading">
         <h1 class="panel-title">Партнер</h1>
         <div class="panel-heading-btn">
-            <a href="#modal-alertx" data-toggle="modal" class="btn btn-xs btn-green m-r-5">Создайте </a>
+            <a href="#modal-alertx" data-toggle="modal" class="btn btn-xs btn-green m-r-5">Создавать </a>
         </div>
     </div>
     <div class="modal fade" id="modal-alertx">
@@ -151,7 +151,7 @@
                                                         <label for="image">Фото <span class="text-red">*</span></label>
                                                         <a href="#" onclick="upload_image('{{$partner->id}}')">
                                                             <img src="{{$partner->image}}" alt="" id="blah{{$partner->id}}" class="w-100">
-                                                            <input type="file"  name="image" id="upload_image{{$partner->id}}" style="display: none;" onchange="document.getElementById('blah{{$partner->id}}').src = window.URL.createObjectURL(this.files[0])">
+                                                            <input type="file" name="image" id="upload_image{{$partner->id}}" style="display: none;" onchange="document.getElementById('blah{{$partner->id}}').src = window.URL.createObjectURL(this.files[0])">
                                                             <span id="photo" style="color:red">@error('photo'){{$message}}@enderror</span>
                                                         </a>
                                                     </div>
@@ -230,25 +230,26 @@ Website: http://www.seantheme.com/color-admin/admin/
     function upload_image(id) {
         document.getElementById('upload_image' + id).click();
     }
+
     function upload_imagex() {
         document.getElementById('upload_image').click();
     }
 
     function delete_news(id) {
         swal({
-            title: 'Are you sure?',
-            text: 'You will not be able to recover this imaginary file!',
+            title: 'Уверены ли вы?',
+            text: 'Вы не сможете восстановить этот воображаемый файл!',
             icon: 'error',
             buttons: {
                 cancel: {
-                    text: 'Cancel',
+                    text: 'Отмена',
                     value: null,
                     visible: true,
                     className: 'btn btn-default',
                     closeModal: true,
                 },
                 confirm: {
-                    text: 'Delete',
+                    text: 'Удалить',
                     value: true,
                     visible: true,
                     className: 'btn btn-danger',

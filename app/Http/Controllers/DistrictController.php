@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use App\District;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDistrictRequest;
+use App\News;
 use Illuminate\Http\Request;
 
 class DistrictController extends Controller
@@ -15,7 +18,12 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        return District::all();
+        $coutries=Country::all();
+        $districts = District::all();
+        return view('districts/index',[
+            'districts'=>$districts,
+            'countries'=>$coutries
+        ]);
     }
 
     /**
@@ -34,9 +42,14 @@ class DistrictController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDistrictRequest $request)
     {
-        //
+        $district=new District();
+        $district->name=$request->name;
+        $district->region_id=$request->region;
+        $district->key=$request->key;
+        $district->save();
+        return redirect()->route('district-index');
     }
 
     /**
@@ -68,9 +81,14 @@ class DistrictController extends Controller
      * @param  \App\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, District $district)
+    public function update(StoreDistrictRequest $request, $id)
     {
-        //
+        $district = District::find($id);
+        $district->name = $request->name;
+        $district->region_id = $request->region;
+        $district->key = $request->key;
+        $district->save();
+        return redirect()->route('district-index');
     }
 
     /**
@@ -79,8 +97,10 @@ class DistrictController extends Controller
      * @param  \App\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function destroy(District $district)
+    public function destroy($id)
     {
-        //
+        $district = District::find($id);
+        $district->delete();
+        return redirect()->route('district-index');
     }
 }

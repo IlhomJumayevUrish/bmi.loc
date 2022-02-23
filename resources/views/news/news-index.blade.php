@@ -17,7 +17,7 @@
 	<div class="panel-heading">
 		<h1 class="panel-title">Список новостей</h1>
 		<div class="panel-heading-btn">
-			<a href="{{route('news-create')}}" class="btn btn-green btn-xs ">Создайте</a>
+			<a href="{{route('news-create')}}" class="btn btn-green btn-xs ">Создавать</a>
 		</div>
 	</div>
 	<!-- end panel-heading -->
@@ -30,9 +30,8 @@
 					<th width="1%" data-orderable="false">Фото</th>
 					<th class="text-nowrap">Заголовок</th>
 					<th class="text-nowrap">Тип</th>
-					<th class="text-nowrap">Описание</th>
-					<th class="text-nowrap" style="width: 30px;">Дата создания</th>
-					<th class="text-nowrap" colspan="2">Действие</th>
+					<th class="text-nowrap">Дата создания</th>
+					<th class="text-nowrap">Действие</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,9 +43,9 @@
 					@else
 					<td class="with-img"><img src="/assets/img/user/user-3.jpg" class="img-rounded height-30" /></td>
 					@endif
-					<td>{{$new->title}}</td>
+					<td>{{substr($new->title,0,20)}}</td>
 					<td>{{$new->type}}</td>
-					<td>{!!substr($new->description,0,50)!!}...</td>
+
 					<td>{{$new->created_at->format('d-m-Y')}}</td>
 					<td>
 						<a href="{{ route('news-show',$new->id)}}" class="btn btn-default btn-icon btn-circle btn-lg">
@@ -83,23 +82,21 @@
 <script src="/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
 <!-- <script src="/assets/js/demo/ui-modal-notification.demo.js"></script> -->
 <script>
-
-
 	function delete_news(id) {
 		swal({
-			title: 'Are you sure?',
-			text: 'You will not be able to recover this imaginary file!',
+			title: 'Уверены ли вы?',
+			text: 'Вы не сможете восстановить этот воображаемый файл!',
 			icon: 'error',
 			buttons: {
 				cancel: {
-					text: 'Cancel',
+					text: 'Отмена',
 					value: null,
 					visible: true,
 					className: 'btn btn-default',
 					closeModal: true,
 				},
 				confirm: {
-					text: 'Delete',
+					text: 'Удалить',
 					value: true,
 					visible: true,
 					className: 'btn btn-danger',

@@ -12,8 +12,8 @@ class Region extends Model
     {
         return $this->hasMany(District::class);
     }
-    public function category(){
-        return $this->belongsTo(Category::class);
+    public function country(){
+        return $this->belongsTo(Country::class);
     }
     
 }

@@ -21,7 +21,7 @@ class UserController extends Controller
 {
     public function login()
     {
-        return view('pages/login-v3');
+        return view('users/login');
     }
     public function admin_login(LoginRequest $request)
     {

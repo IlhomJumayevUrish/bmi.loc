@@ -4,6 +4,7 @@ use App\About;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\NewsController;
@@ -17,11 +18,19 @@ use App\Http\Controllers\UserController;
 use App\SocialContact;
 use App\User;
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('index/',[Controller::class,'index'])->name('index');
+
+
 Route::post('/login/admin/', [UserController::class,'admin_login'])->name('enter');
 Route::get('/login/', [UserController::class,'login'])->name('login');
 
+
+
 Route::group(
     [
+        'prefix' => 'admin',
         'middleware' => 'is_admin',
     ],
     function () {
@@ -97,6 +106,25 @@ Route::group(
     
         Route::get('profile/', [UserController::class, 'profile'])->name('profile');
         Route::post('profile/update/{id}', [UserController::class, 'profileUpdate'])->name('profile-update');
-       
+        //  Category CRUD
+        Route::get('catecories/index',[CategoryController::class,'index'])->name('category-index');
+        Route::post('catecories/store',[CategoryController::class,'store'])->name('category-store');
+        Route::post('catecories/update/{id}',[CategoryController::class,'update'])->name('category-update');
+        Route::post('catecories/delete/{id}',[CategoryController::class,'destroy'])->name('category-delete');
+        // Countries CRUD
+        Route::get('countries/index',[CountryController::class,'all'])->name('country-index');
+        Route::post('countries/store',[CountryController::class,'store'])->name('country-store');
+        Route::post('countries/update/{id}',[CountryController::class,'update'])->name('country-update');
+        // Regions CRUD  
+        Route::get('regions/index', [RegionController::class, 'all'])->name('region-index');
+        Route::post('regions/store', [RegionController::class, 'store'])->name('region-store');
+        Route::post('regions/delete/{id}', [RegionController::class, 'destroy'])->name('region-delete');
+        Route::post('regions/update/{id}', [RegionController::class, 'update'])->name('region-update');
+        // Districts CRUD
+        Route::get('districts/index', [DistrictController::class, 'index'])->name('district-index');
+        Route::post('districts/store', [DistrictController::class, 'store'])->name('district-store');
+        Route::post('districts/update/{id}', [DistrictController::class, 'update'])->name('district-update');
+        Route::post('districts/delete/{id}', [DistrictController::class, 'destroy'])->name('district-delete');
+
     }
 );

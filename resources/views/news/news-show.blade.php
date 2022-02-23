@@ -30,7 +30,7 @@
                             <li class="media media-sm">
                                 <div class="media-body">
                                     <h5 class="media-heading">{{$news->title}}</h5>
-                                    <p>{!!$news->description!!}</p>
+                                    <p class="p-2">{!!$news->description!!}</p>
                                     <p class="m-0"><span>Key: </span> <side>{{$news->keyword}}</side> </p>
                                     <p class="m-0"><span>Type: </span> <site>{{$news->type}}</site> </p>
 

@@ -103,7 +103,6 @@
                                         <option value="inactive">Неактивный</option>
                                     </select>
                                     <span id="image" style="color:red">@error('status'){{$message}}@enderror</span>
-
                                 </div>
 
 

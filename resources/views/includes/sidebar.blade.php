@@ -38,12 +38,12 @@ $sidebarClass = (!empty($sidebarTransparent)) ? 'sidebar-transparent' : '';
 				</a></li>
 			<li class="{{ Request::is('*about*') ? 'active' : '' }}"><a href="{{ route('about-index')}}">
 					<i class="fas fa-home fa-fw"></i>
-					<span>Насчет нас</span>
+					<span>Онас</span>
 				</a></li>
-			<li class="{{ Request::is('*message*') ? 'active' : '' }}"><a href="#">
+			<!-- <li class="{{ Request::is('*message*') ? 'active' : '' }}"><a href="#">
 					<i class="fas fa-sliders-h"></i>
 					<span>Слайдеры +</span>
-				</a></li>
+				</a></li> -->
 			<li class="{{ Request::is('*product*') ? 'active' : '' }}"><a href="{{ route('product-index')}}">
 					<i class="fas fa-shopping-bag"></i>
 					<span>Продукты</span>
@@ -80,17 +80,17 @@ $sidebarClass = (!empty($sidebarTransparent)) ? 'sidebar-transparent' : '';
 				</a>
 				<ul class="sub-menu" style="display: block;">
 					<li class=" ">
-						<a href="/dashboard/v3">Categories</a>
+						<a href="{{ route('category-index')}}">Categories</a>
 					</li>
 					<li class=" ">
-						<a href="/dashboard/v1">Countries</a>
+						<a href="{{ route('country-index')}}">Countries</a>
 					</li>
 					<li class=" ">
-						<a href="/dashboard/v2">Regions</a>
+						<a href="{{ route('region-index')}}">Regions</a>
 
 					</li>
 					<li class=" ">
-						<a href="/dashboard/v3">Districts</a>
+						<a href="{{ route('district-index')}}">Districts</a>
 					</li>
 				</ul>
 			</li>

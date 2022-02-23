@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use App\Region;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRegionyRequest;
 use Illuminate\Http\Request;
 
 class RegionController extends Controller
@@ -17,6 +19,15 @@ class RegionController extends Controller
     {
         return response()->json([
             'regions'=> Region::all(),
+        ]);
+    }
+    public function all()
+    {
+        $regions= Region::all();
+        $countries=Country::all();
+        return view('regions/index',[
+            'regions'=>$regions,
+            'countries'=>$countries
         ]);
     }
 
@@ -36,9 +47,15 @@ class RegionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRegionyRequest $request)
     {
-        //
+       $region=new Region();
+       $region->name=$request->name;
+       $region->key=$request->key;
+       $region->country_id=$request->country;
+       $region->save();
+       return redirect()->route('region-index');
+
     }
 
     /**
@@ -72,9 +89,14 @@ class RegionController extends Controller
      * @param  \App\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Region $region)
+    public function update(StoreRegionyRequest $request, $id)
     {
-        //
+        $region = Region::find($id);
+        $region->name = $request->name;
+        $region->key = $request->key;
+        $region->country_id = $request->country;
+        $region->save();
+        return redirect()->route('region-index');
     }
 
     /**
@@ -83,8 +105,10 @@ class RegionController extends Controller
      * @param  \App\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Region $region)
+    public function destroy($id)
     {
-        //
+        $region=Region::find($id);
+        $region->delete();
+        return redirect()->route('region-index');
     }
 }

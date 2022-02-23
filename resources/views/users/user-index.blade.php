@@ -17,7 +17,7 @@
     <div class="panel-heading">
         <h1 class="panel-title">Список пользователей</h1>
         <div class="panel-heading-btn">
-            <a href="{{route('employee-create')}}" class="btn btn-green btn-xs ">Создайте</a>
+            <a href="{{route('employee-create')}}" class="btn btn-green btn-xs ">Создавать</a>
         </div>
     </div>
     <!-- end panel-heading -->
@@ -127,19 +127,19 @@ Website: http://www.seantheme.com/color-admin/admin/
 
     function delete_news(id) {
         swal({
-            title: 'Are you sure?',
-            text: 'You will not be able to recover this imaginary file!',
+            title: 'Уверены ли вы?',
+            text: 'Вы не сможете восстановить этот воображаемый файл!',
             icon: 'error',
             buttons: {
                 cancel: {
-                    text: 'Cancel',
+                    text: 'Отмена',
                     value: null,
                     visible: true,
                     className: 'btn btn-default',
                     closeModal: true,
                 },
                 confirm: {
-                    text: 'Delete',
+                    text: 'Удалить',
                     value: true,
                     visible: true,
                     className: 'btn btn-danger',

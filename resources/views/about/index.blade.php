@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Насчет нас')
+@section('title', 'Онас')
 
 @section('content')
 
@@ -12,7 +12,7 @@
         <div class="panel panel-inverse" data-sortable-id="ui-media-object-2">
             <!-- begin panel-heading -->
             <div class="panel-heading">
-                <h4 class="panel-title">Насчет нас</h4>
+                <h4 class="panel-title">Онас</h4>
                 <div class="panel-heading-btn">
                     <a href="{{ route('about-edit')}}" class="btn btn-green btn-xs ">Редактировать</a>
                 </div>
