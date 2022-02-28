@@ -20,7 +20,45 @@ use App\User;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('index/',[Controller::class,'index'])->name('index');
+Route::get('/',[Controller::class,'index'])->name('index');
+Route::get('about/',[AboutController::class,'page'])->name('about-page');
+
+Route::get('appoinment/', function () {
+    return view('frontend/appoinment');
+})->name('appoinment-page');
+Route::get('blog-sidebar/', function () {
+    return view('frontend/blog-sidebar');
+})->name('blog-sidebar-page');
+Route::get('blog-single/', function () {
+    return view('frontend/blog-single');
+})->name('blog-single');
+Route::get('confirmation/', function () {
+    return view('frontend/confirmation');
+})->name('confirmation-page');
+Route::get('contact/', function () {
+    return view('frontend/contact');
+})->name('contact-page');
+Route::get('department/', function () {
+    return view('frontend/department');
+})->name('department-page');
+Route::get('department-single/', function () {
+    return view('frontend/department-single');
+})->name('department-single-page');
+Route::get('doctor-single/', function () {
+    return view('frontend/doctor-single');
+})->name('doctor-single-page');
+Route::get('doctor/', function () {
+    return view('frontend/doctor');
+})->name('doctor-page');
+Route::get('service/', function () {
+    return view('frontend/service');
+})->name('service-page');
+
+
+
+
+
+
 
 
 Route::post('/login/admin/', [UserController::class,'admin_login'])->name('enter');
@@ -37,7 +75,7 @@ Route::group(
         // Logout
         Route::get('logout/',[UserController::class,'logout'])->name('logout');
         // News CRUD
-        Route::get('/', [NewsController::class,'index'])->name('news-index');
+        Route::get('news/index/', [NewsController::class,'index'])->name('news-index');
         Route::get('news/create/',[NewsController::class,'create'])->name('news-create');
         Route::post('news/store/', [NewsController::class,'store'])->name('news-store');
         Route::post('news/delete/{id}', [NewsController::class,'destroy'])->name('news-delete');

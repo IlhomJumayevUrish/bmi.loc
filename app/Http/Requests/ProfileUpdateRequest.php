@@ -36,8 +36,8 @@ class ProfileUpdateRequest extends FormRequest
             'series' => 'nullable',
             'number' => 'nullable',
             'birthday' => 'nullable',
-            'password' => 'nullable|min:6',
-            'password_confirmation' => 'nullable|required_with:password|min:6',
+            'password' => 'nullable|min:3',
+            'password_confirmation' => 'nullable|required_with:password|min:3',
         ];
     }
 }

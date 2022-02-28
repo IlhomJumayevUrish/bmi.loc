@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+
+    public function page(){
+        return view('frontend/about');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

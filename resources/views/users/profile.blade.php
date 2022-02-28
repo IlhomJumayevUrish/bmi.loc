@@ -158,7 +158,7 @@
                                     @if(Session::has('password_confirmation'))
                                     <span class="text-red"> {{Session::get('password_confirmation')}}</span>
                                     @endif
-                                 
+
 
                                 </div>
                                 <div class="col-md-6">
@@ -205,7 +205,6 @@
         <!-- end panel -->
     </div>
     <!-- end col-6 -->
-
 </div>
 <!-- end row -->
 @endsection
@@ -236,6 +235,7 @@
 
 @endpush
 <script>
+
     function upload_image() {
         document.getElementById('upload_image').click();
     }
