@@ -33,15 +33,15 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                            <li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i>ilhomjumayev6022@gmail.com</a></li>
-                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address TTJ-12/Olmazor, Tashkent, Asia </li>
+                            <li class="list-inline-item"><a href="mailto:{{$about->email}}"><i class="icofont-support-faq mr-2"></i>{{$about->email}}</a></li>
+                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address {{$about->address}} </li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-                            <a href="tel:+23-345-67890">
-                                <span>Call Now : </span>
-                                <span class="h4">+998903306022</span>
+                            <a href="tel:{{$about->phone}}">
+                                <span class="h6">Call Now :</span>
+                                <span class="h6">{{$about->phone}}</span>
                             </a>
                         </div>
                     </div>
@@ -120,7 +120,9 @@
                         <div class="logo mb-4">
                             <img src="/frontend/images/logo.png" alt="" class="img-fluid">
                         </div>
-                        <p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente est neque libero amet repudiandae, fuga, omnis inventore tenetur obcaecati maiores rem tempora illum harum! Laboriosam consectetur sequi illo reprehenderit architecto!
+                        </p>
 
                         <ul class="list-inline footer-socials mt-4">
                             <li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a></li>
@@ -184,31 +186,7 @@
                 </div>
             </div>
 
-            <div class="footer-btm py-4 mt-5">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-6">
-                        <div class="copyright">
-                            &copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="subscribe-form text-lg-right mt-5 mt-lg-0">
-                            <form action="#" class="subscribe">
-                                <input type="text" class="form-control" placeholder="Your Email address">
-                                <a href="#" class="btn btn-main-2 btn-round-full">Subscribe</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4">
-                        <a class="backtop js-scroll-trigger" href="#top">
-                            <i class="icofont-long-arrow-up"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </footer>
 

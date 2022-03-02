@@ -11,7 +11,11 @@ class AboutController extends Controller
 {
 
     public function page(){
-        return view('frontend/about');
+        $about=About::first();
+       
+        return view('frontend/about',[
+            'about'=>$about
+        ]);
     }
 
 

@@ -8,14 +8,14 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">About Us</span>
-					<h1 class="text-capitalize mb-5 text-lg">About Us</h1>
+					<span class="text-white">О нас</span>
+					<h1 class="text-capitalize mb-5 text-lg">{{$about->title}}</h1>
 
-					<!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">About Us</a></li>
-          </ul> -->
+					<ul class="list-inline breadcumb-nav">
+						<li class="list-inline-item"><a href="{{ route('index')}}" class="text-white">Дома</a></li>
+						<li class="list-inline-item"><span class="text-white">/</span></li>
+						<li class="list-inline-item"><a href="#" class="text-white-50">О нас</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,9 @@
 				<h2 class="title-color">Personal care for your healthy living</h2>
 			</div>
 			<div class="col-lg-8">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, quod laborum alias. Vitae dolorum, officia sit! Saepe ullam facere at, consequatur incidunt, quae esse, quis ut reprehenderit dignissimos, libero delectus.</p>
+				<p>
+					{!!$about->description!!}
+				</p>
 				<img src="/frontend/images/about/sign.png" alt="" class="img-fluid">
 			</div>
 		</div>
@@ -55,14 +57,14 @@
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="about-block-item mb-5 mb-lg-0">
-					<img src="/frontend/images/about/about-3.jpg" alt="" class="img-fluid w-100">
+					<img src="{{$about->image}}" alt="" class="img-fluid w-100">
 					<h4 class="mt-3">Modern Equipments</h4>
 					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6">
 				<div class="about-block-item">
-					<img src="/frontend/images/about/about-4.jpg" alt="" class="img-fluid w-100">
+					<img src="{{$about->image}}" alt="" class="img-fluid w-100">
 					<h4 class="mt-3">Qualified Doctors</h4>
 					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
 				</div>
@@ -133,7 +135,7 @@
 					<img src="/frontend/images/team/1.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">John Marshal</a></h4>
+						<h4 class="mt-4 mb-0"><a href="{{ route('doctor-single-page')}}">John Marshal</a></h4>
 						<p>Internist, Emergency Physician</p>
 					</div>
 				</div>
@@ -144,7 +146,7 @@
 					<img src="/frontend/images/team/2.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Marshal Root</a></h4>
+						<h4 class="mt-4 mb-0"><a href="{{ route('doctor-single-page')}}">Marshal Root</a></h4>
 						<p>Surgeon, Сardiologist</p>
 					</div>
 				</div>
@@ -155,7 +157,7 @@
 					<img src="/frontend/images/team/3.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Siamon john</a></h4>
+						<h4 class="mt-4 mb-0"><a href="{{ route('doctor-single-page')}}">Siamon john</a></h4>
 						<p>Internist, General Practitioner</p>
 					</div>
 				</div>
@@ -165,7 +167,7 @@
 					<img src="/frontend/images/team/4.jpg" alt="" class="img-fluid w-100">
 
 					<div class="content">
-						<h4 class="mt-4 mb-0"><a href="doctor-single.html">Rishat Ahmed</a></h4>
+						<h4 class="mt-4 mb-0"><a href="{{ route('doctor-single-page')}}">Rishat Ahmed</a></h4>
 						<p>Orthopedic Surgeon</p>
 					</div>
 				</div>

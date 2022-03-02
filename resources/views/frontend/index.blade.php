@@ -401,9 +401,10 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-7">
 				<div class="section-title text-center">
-					<h2>Partners who support us</h2>
+					<h2>Партнеры, которые нас поддерживают</h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p>Давайте знать больше, что боль должна быть уколота им, мы можем быть удовольствиями и проблемами наших поклонников. И когда он спрашивает своих предков.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -411,56 +412,20 @@
 
 	<div class="container">
 		<div class="row clients-logo">
+
+
+			@foreach($partners as $partner)
 			<div class="col-lg-2">
 				<div class="client-thumb">
-					<img src="/frontend/images/about/1.png" alt="" class="img-fluid">
+					<a href="{{$partner->url}}">
+						<img src="{{$partner->image}}" alt="" class="img-fluid">
+						<p class="text">{{$partner->title}}</p>
+					</a>
+
 				</div>
 			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/2.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/3.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/4.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/5.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/6.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/3.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/4.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/5.png" alt="" class="img-fluid">
-				</div>
-			</div>
-			<div class="col-lg-2">
-				<div class="client-thumb">
-					<img src="/frontend/images/about/6.png" alt="" class="img-fluid">
-				</div>
-			</div>
+			@endforeach
+
 		</div>
 	</div>
 </section>
