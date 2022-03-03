@@ -52,8 +52,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="image">Фото <span class="text-red">*</span></label>
                                             <a href="#" onclick="upload_imagex()">
+                                                <label for="image">Фото <span class="text-red">*</span></label>
                                                 <img src="/assets/img/gallery/add.png" alt="" id="blah" class="w-100">
                                                 <input type="file" required name="image" id="upload_image" style="display: none;" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                                 <span id="photo" style="color:red">@error('photo'){{$message}}@enderror</span>
