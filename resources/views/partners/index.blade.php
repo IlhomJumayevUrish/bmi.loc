@@ -148,8 +148,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label for="image">Фото <span class="text-red">*</span></label>
                                                         <a href="#" onclick="upload_image('{{$partner->id}}')">
+                                                        <label for="image">Фото <span class="text-red">*</span></label>
                                                             <img src="{{$partner->image}}" alt="" id="blah{{$partner->id}}" class="w-100">
                                                             <input type="file" name="image" id="upload_image{{$partner->id}}" style="display: none;" onchange="document.getElementById('blah{{$partner->id}}').src = window.URL.createObjectURL(this.files[0])">
                                                             <span id="photo" style="color:red">@error('photo'){{$message}}@enderror</span>
