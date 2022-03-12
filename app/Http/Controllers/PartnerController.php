@@ -8,7 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdatePartnerRequest;
 use App\PublicMethod;
 use Illuminate\Http\Request;
-
+use Image;
 class PartnerController extends Controller
 {
     /**
@@ -50,6 +50,8 @@ class PartnerController extends Controller
             $partner->image = PublicMethod::uploadImage($file, 'partners');
         }
         $partner->save();
+
+
         return redirect()->route('partner-index');
     }
 

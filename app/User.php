@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Sanctum\HasApiTokens;
+use Image;
 
 class User extends Authenticatable
 {
@@ -51,6 +51,9 @@ class User extends Authenticatable
             $user->photo=PublicMethod::uploadImage($request->file('photo'),'users');
         }
         $user->save();
+
+
+
     }
     static  public function updateUser($request,$id)
     {

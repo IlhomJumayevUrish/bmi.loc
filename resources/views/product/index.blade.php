@@ -33,7 +33,7 @@
                     <th class="text-nowrap">URL-адрес</th>
                     <th class="text-nowrap">Файл</th>
                     <th class="text-nowrap">Время создания</th>
-                    <th class="text-nowrap" colspan="2">Действие</th>
+                    <th class="text-nowrap" >Действие</th>
                 </tr>
             </thead>
             <tbody>
