@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\AssignOp\Concat;
 
 class ContactController extends Controller
@@ -43,7 +44,7 @@ class ContactController extends Controller
     public function store(StoreContactRequest $request)
     {
         Contact::create($request);
-        return redirect()->route('contact-user-index'); 
+        return Redirect::back()->with('status', 'Ваше сообщение было успешно отправлено');
     }
 
     /**

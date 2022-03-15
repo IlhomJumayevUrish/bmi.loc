@@ -53,6 +53,7 @@ Route::get('doctor/', function () {
 Route::get('service/', function () {
     return view('frontend/service');
 })->name('service-page');
+Route::post('user/contact/store/', [ContactController::class, 'store'])->name('contact-user-store');
 
 
 
@@ -115,7 +116,6 @@ Route::group(
         // Contact CRUD
         Route::get('user/contact/index/',[ContactController::class,'index'])->name('contact-user-index');
         Route::get('user/contact/add/',[ContactController::class,'create'])->name('contact-user-create');
-        Route::post('user/contact/store/',[ContactController::class,'store'])->name('contact-user-store');
         Route::post('user/contact/delete/{id}', [ContactController::class,'destroy'])->name('contact-user-delete');
         Route::get('user/contact/edit/{id}', [ContactController::class,'edit'])->name('contact-user-edit');
         Route::post('user/contact/update/{id}', [ContactController::class,'update'])->name('contact-user-update');

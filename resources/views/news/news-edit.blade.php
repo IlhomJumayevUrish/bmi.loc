@@ -46,9 +46,9 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label class="col-md-12 col-form-label" >Ключ<span class="text-red">*</span></label>
+									<label class="col-md-12 col-form-label">Автор<span class="text-red">*</span></label>
 									<div class="col-md-12 ">
-										<input class="form-control" type="text"  value="{{ old('key',$news->keyword)}}" name="key" data-parsley-required="true" placeholder="Ключ" />
+										<input class="form-control" type="text" value="{{ old('key',$news->keyword)}}" name="key" data-parsley-required="true" placeholder="Ключ" />
 									</div>
 
 								</div>
@@ -59,7 +59,7 @@
 							<label class="col-form-label" for="image">Фото<span class="text-red">*</span></label>
 							<a href="#" onclick="upload_image()">
 								<img src="{{$news->image}}" alt="" id="blah" class="w-100">
-								<input type="file"  name="image" id="upload_image" style="display: none;" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+								<input type="file" name="image" id="upload_image" style="display: none;" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
 								<span id="photo" style="color:red">@error('image'){{$message}}@enderror</span>
 							</a>
 						</div>

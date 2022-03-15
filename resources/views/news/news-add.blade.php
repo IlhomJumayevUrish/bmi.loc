@@ -45,7 +45,7 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label class="col-md-12 col-form-label" for="message">Ключ<span class="text-red">*</span></label>
+									<label class="col-md-12 col-form-label" for="message">Автор<span class="text-red">*</span></label>
 									<div class="col-md-12 ">
 										<input class="form-control" type="text" id="digits" value="{{ old('key')}}" name="key" data-parsley-required="true" placeholder="Ключ" />
 									</div>

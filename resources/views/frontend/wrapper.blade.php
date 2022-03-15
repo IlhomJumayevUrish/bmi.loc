@@ -61,9 +61,9 @@
                 <div class="collapse navbar-collapse" id="navbarmain">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('index')}}">Home</a>
+                            <a class="nav-link" href="{{route('index')}}">Главная</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('about-page')}}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('about-page')}}">Насчет нас</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('service-page')}}">Services</a></li>
 
                         <li class="nav-item dropdown">
@@ -91,7 +91,7 @@
                                 <li><a class="dropdown-item" href="{{ route('blog-sidebar-page')}}">Blog Single</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('contact-page')}}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contact-page')}}">Контакт</a></li>
                     </ul>
                 </div>
             </div>
@@ -186,7 +186,7 @@
                 </div>
             </div>
 
-           
+
         </div>
     </footer>
 

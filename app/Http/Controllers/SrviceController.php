@@ -107,7 +107,7 @@ class SrviceController extends Controller
             $product->photo = PublicMethod::uploadImage($file, 'products', $product->image);
         }
         if ($file = $request->file('file')) {
-            $product->file = PublicMethod::uploadImage($file, 'products', $product->file);
+            $product->file = PublicMethod::uploadFile($file, 'products', $product->file);
         }
         $product->save();
         return redirect()->route('service-index');
