@@ -236,7 +236,7 @@
 						<h4>{!!$new->title!!}</h4>
 						<span>Автор : {!!$new->keyword!!}</span>
 						<p class="mt-4">
-							{!!$new->description!!}
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, impedit.
 						</p>
 					</div>
 					<i class="icofont-quote-right"></i>
