@@ -96,10 +96,10 @@ class AboutController extends Controller
         $about->working_date=$request->working_date;
         $about->description=$request->description;
         if ($file = $request->file('image')) {
-            $about->image = PublicMethod::uploadImage($file,'abouts',$about->image);
+            $about->image = PublicMethod::uploadFile($file,'abouts',$about->image);
         }
         if ($file = $request->file('logo')) {
-            $about->logo = PublicMethod::uploadImage($file, 'abouts', $about->image);
+            $about->logo = PublicMethod::uploadFile($file, 'abouts', $about->image);
         }
         $about->save();
         return redirect()->route('about-index');

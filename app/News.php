@@ -15,9 +15,8 @@ class News extends Model
         $news->keyword= $request->key;
         $news->description= $request->description;
         if($file = $request->file('image')){
-            $news->image= PublicMethod::uploadImage($file = $request->file('image'),'news');
-            $news->image_s=
-            PublicMethod::uploadImage($file = $request->file('image'), 'news');;
+            $news->image= PublicMethod::uploadFile($file = $request->file('image'),'news');
+            $news->image_s=PublicMethod::uploadImage($file = $request->file('image'), 'news');;
         }
         $news->save();
       
@@ -29,7 +28,7 @@ class News extends Model
         $news->keyword= $request->key;
         $news->description= $request->description;
         if ($file = $request->file('image')) {
-            $news->image = PublicMethod::uploadImage($file = $request->file('image'), 'news',$news->image);
+            $news->image = PublicMethod::uploadFile($file = $request->file('image'), 'news',$news->image);
             $news->image_s = PublicMethod::uploadImage($file = $request->file('image'),'news', $news->image);;
         }
         $news->save();

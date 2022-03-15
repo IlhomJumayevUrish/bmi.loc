@@ -48,7 +48,7 @@ class User extends Authenticatable
         $user->password = Hash::make($request->password);
         if($request->file('photo'))
         {
-            $user->photo=PublicMethod::uploadImage($request->file('photo'),'users');
+            $user->photo=PublicMethod::uploadFile($request->file('photo'),'users');
         }
         $user->save();
 

@@ -15,7 +15,7 @@ class SocialContact extends Model
         $contact->url = $request->url;
         $contact->status = $request->status;
         $contact->about_id  = 1;
-        $contact->image=PublicMethod::uploadImage($request->file('image'), 'contacts');
+        $contact->image=PublicMethod::uploadFile($request->file('image'), 'contacts');
         $contact->save();
     }
     static  public function edit($request,$id)
@@ -25,7 +25,7 @@ class SocialContact extends Model
         $contact->url = $request->url;
         $contact->status = $request->status;
         if($request->file('image')){
-            $contact->image=PublicMethod::uploadImage($request->file('image'), 'contacts', $contact->image);
+            $contact->image=PublicMethod::uploadFile($request->file('image'), 'contacts', $contact->image);
         }
         $contact->save();
     }
