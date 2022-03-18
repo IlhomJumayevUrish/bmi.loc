@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Srvice extends Model
 {
     protected $guarded = [];
-    protected $table = "services";
+    protected $table = "srvices";
     public function category()
     {
         return $this->belongsTo(Category::class);

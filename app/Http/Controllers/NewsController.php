@@ -98,4 +98,15 @@ class NewsController extends Controller
         $news->delete();
         return redirect()->route('news-index');
     }
+    
+    public function blog($id)
+    {
+        $news = News::find($id);
+        return view('frontend/blog-single', [
+            'news' => $news,
+        ]);
+    }
+    
+
+
 }

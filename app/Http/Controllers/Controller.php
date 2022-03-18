@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\News;
 use App\Partner;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,9 +16,11 @@ class Controller extends BaseController
     public function index(){
         $partners=Partner::all();
         $news=News::all();
+        $about=About::first();
         return view('frontend/index',[
             'partners'=>$partners,
-            'news'=>$news
+            'news'=>$news,
+            'about'=>$about
         ]);
     }
 }

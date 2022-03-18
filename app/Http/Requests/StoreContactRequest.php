@@ -27,7 +27,6 @@ class StoreContactRequest extends FormRequest
             'fio' => 'required',
             'email' => 'required',
             'phone1' => 'required',
-            'phone2' => 'required',
             'description' => 'required',
         ];
     }

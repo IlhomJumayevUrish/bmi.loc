@@ -1,8 +1,5 @@
 @extends('frontend.wrapper')
-
 @section('content')
-
-
 <section class="page-title bg-1">
 	<div class="overlay"></div>
 	<div class="container">
@@ -22,71 +19,32 @@
 		</div>
 	</div>
 </section>
-
-
 <section class="section service-2">
 	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2>Award winning patient care</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+				</div>
+			</div>
+		</div>
 		<div class="row">
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-block mb-5">
-					<img src="images/service/service-1.jpg" alt="" class="img-fluid">
+			@foreach($services as $service)
+			<div class="col-lg-4 col-md-6 ">
+				<div class="department-block mb-5">
+					<img src="{{$service->photo}}" alt="" class="img-fluid w-100">
 					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Child care</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<h6 class="mt-4 mb-2 title-color">{{$service->name}}</h6>
+						<p class="mb-4">
+							{!! Str::words($service->description,8, '...')!!}
+						</p>
+						<a href="{{ route('department-single-page', $service->id)}}" class="read-more">Узнать больше <i class="icofont-simple-right ml-2"></i></a>
 					</div>
 				</div>
 			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-block mb-5">
-					<img src="images/service/service-2.jpg" alt="" class="img-fluid">
-					<div class="content">
-						<h4 class="mt-4 mb-2  title-color">Personal Care</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-block mb-5">
-					<img src="images/service/service-3.jpg" alt="" class="img-fluid">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">CT scan</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/service/service-4.jpg" alt="" class="img-fluid">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Joint replacement</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/service/service-6.jpg" alt="" class="img-fluid">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Examination & Diagnosis</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 col-sm-6">
-				<div class="service-block mb-5 mb-lg-0">
-					<img src="images/service/service-8.jpg" alt="" class="img-fluid">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Alzheimer's disease</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-					</div>
-				</div>
-			</div>
+			@endforeach
 		</div>
 	</div>
 </section>
@@ -96,13 +54,11 @@
 			<div class="col-lg-7">
 				<div class="cta-content">
 					<div class="divider mb-4"></div>
-					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
-					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">Get appoinment<i class="icofont-simple-right  ml-2"></i></a>
+					<h2 class="mb-5 text-lg">Мы рады предложить вам качественные услуги</h2>
+					<a href="{{ route('contact-page')}}" class="btn btn-main-2 btn-round-full">Получить контакт<i class="icofont-simple-right  ml-2"></i></a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
-
 @endsection

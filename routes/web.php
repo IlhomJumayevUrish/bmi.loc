@@ -3,6 +3,7 @@
 use App\About;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CountryController;
@@ -26,9 +27,7 @@ Route::get('about/',[AboutController::class,'page'])->name('about-page');
 Route::get('appoinment/', function () {
     return view('frontend/appoinment');
 })->name('appoinment-page');
-Route::get('blog-sidebar/', function () {
-    return view('frontend/blog-sidebar');
-})->name('blog-sidebar-page');
+
 Route::get('blog-single/', function () {
     return view('frontend/blog-single');
 })->name('blog-single');
@@ -41,19 +40,18 @@ Route::get('contact/', function () {
 Route::get('department/', function () {
     return view('frontend/department');
 })->name('department-page');
-Route::get('department-single/', function () {
-    return view('frontend/department-single');
-})->name('department-single-page');
+Route::get('department-single/{id}', [SrviceController::class,'service'])->name('department-single-page');
 Route::get('doctor-single/', function () {
     return view('frontend/doctor-single');
 })->name('doctor-single-page');
 Route::get('doctor/', function () {
     return view('frontend/doctor');
 })->name('doctor-page');
-Route::get('service/', function () {
-    return view('frontend/service');
-})->name('service-page');
+Route::get('service/',[SrviceController::class,'services'])->name('service-page');
 Route::post('user/contact/store/', [ContactController::class, 'store'])->name('contact-user-store');
+Route::get('blog/{id}', [NewsController::class, 'blog'])->name('blog-get');
+Route::post('comment/store/', [CommentController::class, 'store'])->name('comment-store');
+
 
 
 

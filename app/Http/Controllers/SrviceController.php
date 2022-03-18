@@ -125,4 +125,18 @@ class SrviceController extends Controller
         $product->delete();
         return redirect()->route('service-index');
     }
+    public function service($id)
+    {
+        $service = Product::find($id);
+        return view('frontend/department-single',[
+            'service'=>$service,
+        ]);
+    }
+    public function services()
+    {
+        $services = Product::where('type', 'service')->get();
+        return view('frontend/service',[
+            'services'=>$services,
+        ]);
+    }
 }

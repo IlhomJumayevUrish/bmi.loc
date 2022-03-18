@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\About;
+use App\SocialContact;
 use Closure;
 
 class Variable
@@ -18,6 +19,8 @@ class Variable
     {
         $about=About::first();
         view()->share('about', $about);
+        $contacts= SocialContact::where('status','active')->get();
+        view()->share('contacts', $contacts);
         return $next($request);
     }
 }

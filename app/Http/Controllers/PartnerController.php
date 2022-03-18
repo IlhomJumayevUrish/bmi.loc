@@ -47,7 +47,7 @@ class PartnerController extends Controller
         $partner->url=$request->url;
         if ($file = $request->file('image')) {
          
-            $partner->image = PublicMethod::uploadImage($file, 'partners');
+            $partner->image = PublicMethod::uploadFile($file, 'partners');
         }
         $partner->save();
 
@@ -91,7 +91,7 @@ class PartnerController extends Controller
         $partner->url = $request->url;
         if ($file = $request->file('image')) {
 
-            $partner->image = PublicMethod::uploadImage($file, 'partners',$partner->image);
+            $partner->image = PublicMethod::uploadFile($file, 'partners',$partner->image);
         }
         $partner->save();
         return redirect()->route('partner-index');

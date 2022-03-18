@@ -25,22 +25,22 @@
 			<div class="col-lg-4 col-sm-6 col-md-6">
 				<div class="contact-block mb-4 mb-lg-0">
 					<i class="icofont-live-support"></i>
-					<h5>Call Us</h5>
-					+823-4565-13456
+					<h5>Позвоните нам</h5>
+					{{$about->phone}}
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-6 col-md-6">
 				<div class="contact-block mb-4 mb-lg-0">
 					<i class="icofont-support-faq"></i>
-					<h5>Email Us</h5>
-					contact@mail.com
+					<h5>Эл. адрес</h5>
+					{{$about->email}}
 				</div>
 			</div>
 			<div class="col-lg-4 col-sm-6 col-md-6">
 				<div class="contact-block mb-4 mb-lg-0">
 					<i class="icofont-location-pin"></i>
-					<h5>Location</h5>
-					North Main Street,Brooklyn Australia
+					<h5>Место нахождения</h5>
+					{{$about->address}}
 				</div>
 			</div>
 		</div>
@@ -84,19 +84,15 @@
 
 						<div class="col-lg-6">
 							<div class="form-group">
-								<input name="phone1" type="text" class="form-control" placeholder="Ваш телефон первым" required>
+								<input name="phone1" type="text" class="form-control" placeholder="Телефон" required>
 							</div>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-12">
 							<div class="form-group">
 								<input name="email" id="email" type="email" class="form-control" placeholder="Ваш электронный адрес" required>
 							</div>
 						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<input name="phone2" type="text" class="form-control" placeholder="Ваш телефон второй" required>
-							</div>
-						</div>
+
 					</div>
 
 					<div class="form-group-2 mb-4">
