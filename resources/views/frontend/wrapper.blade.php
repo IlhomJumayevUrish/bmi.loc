@@ -40,7 +40,7 @@
                     <div class="col-lg-6">
                         <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
                             <a href="tel:{{$about->phone}}">
-                                <span class="h6">Call Now :</span>
+                                <span class="h6">Позвони сейчас :</span>
                                 <span class="h6">{{$about->phone}}</span>
                             </a>
                         </div>
