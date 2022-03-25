@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\About;
 use App\Http\Controllers\Controller;
+use App\Partner;
 use App\PublicMethod;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,11 @@ class AboutController extends Controller
 
     public function page(){
         $about=About::first();
+        $partners=Partner::all();
        
         return view('frontend/about',[
-            'about'=>$about
+            'about'=>$about,
+            'partners'=> $partners
         ]);
     }
 

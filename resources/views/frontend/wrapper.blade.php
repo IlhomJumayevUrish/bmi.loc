@@ -63,14 +63,14 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{route('index')}}">Главная</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('about-page')}}">насчет нас</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('about-page')}}">O нас</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('service-page')}}">Услуги</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ route('doctor-page')}}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
+                            <a class="nav-link dropdown-toggle" href="{{ route('doctor-page')}}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Продукт <i class="icofont-thin-down"></i></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                                <li><a class="dropdown-item" href="{{ route('doctor-page')}}">Doctors</a></li>
-                                <li><a class="dropdown-item" href="{{ route('doctor-single-page')}}">Doctor Single</a></li>
-                                <li><a class="dropdown-item" href="{{ route('department-page')}}">Appoinment</a></li>
+                                @foreach($products as $product)
+                                <li><a class="dropdown-item" href="{{ route('doctor-page')}}">{{$product->name}}</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact-page')}}">Контакт</a></li>

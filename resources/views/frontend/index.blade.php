@@ -74,14 +74,15 @@
 					<div class="counter-stat">
 						<i class="icofont-doctor"></i>
 						<span class="h3">58</span>k
-						<p>Happy People</p>
+						<p>Работяги</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="counter-stat">
-						<i class="icofont-flag"></i>
+						<i class="icofont-company"></i>
 						<span class="h3">700</span>+
-						<p>Surgery Comepleted</p>
+						<p>Счастливые клиенты
+						</p>
 					</div>
 				</div>
 
@@ -89,14 +90,15 @@
 					<div class="counter-stat">
 						<i class="icofont-badge"></i>
 						<span class="h3">40</span>+
-						<p>Expert Doctors</p>
+						<p>Часы поддержки
+						</p>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="counter-stat">
 						<i class="icofont-globe"></i>
 						<span class="h3">20</span>
-						<p>Worldwide Branch</p>
+						<p>Проекты</p>
 					</div>
 				</div>
 			</div>
@@ -114,10 +116,7 @@
 				<div class="doctor-img-block">
 					<img src="{{$new->image}}" alt="" class="img-fluid w-100">
 
-					<div class="info-block mt-4">
-						<h5 class="mb-0">Автор: {{$new->keyword}}</h5>
-						<!-- <p>{{$new->type}}</p> -->
-					</div>
+
 				</div>
 			</div>
 			<div class="col-lg-8 col-md-6">
@@ -144,9 +143,7 @@
 			<div class="col-lg-7">
 				<div class="section-title text-center">
 					<h2>Партнеры, которые нас поддерживают</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>Давайте знать больше, что боль должна быть уколота им, мы можем быть удовольствиями и проблемами наших поклонников. И когда он спрашивает своих предков.
-					</p>
+
 				</div>
 			</div>
 		</div>

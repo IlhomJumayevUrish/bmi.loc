@@ -42,7 +42,7 @@
 									<span class="text-black text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> {{$news->created_at}}</span>
 								</div>
 
-								<h2 class="mb-4 text-md"><a href="blog-single.html">{{$news->title}}</a></h2>
+								<h2 class="mb-4 text-md">{{$news->title}}</h2>
 								<p>{!!$news->description!!}</p>
 							</div>
 						</div>
@@ -50,7 +50,7 @@
 
 					<div class="col-lg-12">
 						<div class="comment-area mt-4 mb-5">
-							<h4 class="mb-4">{{$news->comments->count()}} комментария на {{Str::limit($news->title,20)}} ... </h4>
+							<h4 class="mb-4">{{$news->comments->count()}} комментария</h4>
 							<ul class="comment-tree list-unstyled">
 								@foreach($news->comments as $comment)
 								<li class="mb-5">

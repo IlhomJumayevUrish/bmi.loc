@@ -52,11 +52,11 @@ class ProductController extends Controller
         $product->description=$request->description;
         if ($file = $request->file('image')) {
           
-            $product->photo = PublicMethod::uploadImage($file,'products');
+            $product->photo = PublicMethod::uploadFile($file,'products');
         }
         if ($file = $request->file('file')) {
           
-            $product->file =PublicMethod::uploadImage($file,'products/file');
+            $product->file =PublicMethod::uploadFile($file,'products/file');
         }
         $product->save();
         return redirect()->route('product-index');
@@ -104,11 +104,12 @@ class ProductController extends Controller
         $product->category_id = $request->category;
         $product->description = $request->description;
         if ($file = $request->file('image')) {
-           
-            $product->photo = PublicMethod::uploadImage($file,'products',$product->image);
+            
+            $product->photo = PublicMethod::uploadFile($file, 'products',$product->photo);
         }
         if ($file = $request->file('file')) {
-            $product->file = PublicMethod::uploadImage($file, 'products',$product->file);
+
+            $product->file = PublicMethod::uploadFile($file, 'products/file', $product->file);
         }
         $product->save();
         return redirect()->route('product-index');

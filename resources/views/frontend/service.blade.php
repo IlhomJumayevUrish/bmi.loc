@@ -6,8 +6,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Our services</span>
-					<h1 class="text-capitalize mb-5 text-lg">What We Do</h1>
+					<span class="text-white">Наш сервис</span>
+					<h1 class="text-capitalize mb-5 text-lg">Что мы делаем
+					</h1>
 
 					<!-- <ul class="list-inline breadcumb-nav">
             <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
@@ -24,9 +25,8 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
-					<h2>Award winning patient care</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<h2>О Компании</h2>
+
 				</div>
 			</div>
 		</div>

@@ -53,8 +53,6 @@
 			<div class="col-lg-6">
 				<div class="section-title text-center">
 					<h2 class="text-md mb-2">Связаться с нами</h2>
-					<div class="divider mx-auto my-4"></div>
-					<p class="mb-5">Трудности счастливого упражнения могут привести к ним</p>
 				</div>
 			</div>
 		</div>

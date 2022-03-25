@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\About;
+use App\Product;
 use App\SocialContact;
 use Closure;
 
@@ -21,6 +22,8 @@ class Variable
         view()->share('about', $about);
         $contacts= SocialContact::where('status','active')->get();
         view()->share('contacts', $contacts);
+        $products= Product::where('type','product')->get();
+        view()->share('products', $products);
         return $next($request);
     }
 }
