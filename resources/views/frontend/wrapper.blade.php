@@ -66,10 +66,10 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('about-page')}}">O нас</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('service-page')}}">Услуги</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ route('doctor-page')}}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Продукт <i class="icofont-thin-down"></i></a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Продукт <i class="icofont-thin-down"></i></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown03">
                                 @foreach($products as $product)
-                                <li><a class="dropdown-item" href="{{ route('doctor-page')}}">{{$product->name}}</a></li>
+                                <li><a class="dropdown-item" href="{{ route('doctor-page',$product->id)}}">{{$product->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -125,11 +125,11 @@
 
                         <ul class="list-unstyled footer-menu lh-35">
                             <li> <a href="{{route('index')}}">Главная</a></li>
-                            <!-- <li><a href="{{ route('about-page')}}">Насчет нас</a></li> -->
-                            <li><a href="#">Товар</a></li>
-                            <li><a href="#">Услуга</a></li>
-                            <li><a href="#">Блог</a></li>
-                            <li><a href="#">Контакт</a></li>
+                            <li><a href="{{ route('about-page')}}">O Нас</a></li>
+                            <li><a href="{{ route('service-page') }}">Наши сервисы</a></li>
+                            <li><a href="{{ route('contact-page')}}">Наши контакты</a></li>
+
+
                         </ul>
                     </div>
                 </div>

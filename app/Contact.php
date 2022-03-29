@@ -11,10 +11,10 @@ class Contact extends Model
     static public function create($request)
     {
         $contact=new Contact();
-        // $contact->fio=$request->fio;
-        // // $contact->email=$request->email;
-        // // $contact->phone1=$request->phone1;
-        // // $contact->description=$request->description;
+        $contact->fio=$request->fio;
+        $contact->email=$request->email;
+        $contact->phone1=$request->phone1;
+        $contact->description=$request->description;
         $contact->save();
     }
     static public function updateContact($request,$id)

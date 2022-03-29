@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\Http\Controllers\Controller;
 use App\PublicMethod;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -68,9 +69,12 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $pro=Product::find($id);
+        return view('frontend/doctor',[
+            'product'=>$pro
+        ]);
     }
 
     /**

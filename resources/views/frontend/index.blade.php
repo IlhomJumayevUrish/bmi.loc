@@ -17,7 +17,7 @@
 
 					<p class="mb-4 pr-5">A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.</p>
 					<div class="btn-container ">
-						<a href="{{ route('appoinment-page')}}" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
+						<a href="{{ route('contact-page')}}" class="btn btn-main-2 btn-round-full">Получить контакт<i class="icofont-simple-right  ml-2"></i></a>
 					</div>
 				</div>
 			</div>
@@ -36,7 +36,6 @@
 						<span>24 часа обслуживания</span>
 						<h4 class="mb-3">Онлайн-запись</h4>
 						<p class="mb-4">Получайте постоянную поддержку в экстренных случаях. Мы внедрили принцип 1С товар и услуга.</p>
-						<a href="{{ route('appoinment-page')}}" class="btn btn-main btn-round-full">записаться на прием</a>
 					</div>
 
 					<div class="feature-item mb-5 mb-lg-0">

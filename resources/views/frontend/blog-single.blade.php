@@ -10,13 +10,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">News details</span>
-					<h1 class="text-capitalize mb-5 text-lg">Blog Single</h1>
+					<h1 class="text-capitalize mb-5 text-lg">Что мы делаем</h1>
 
 					<ul class="list-inline breadcumb-nav">
-						<li class="list-inline-item"><a href="{{ route('index')}}" class="text-white">Home</a></li>
+						<li class="list-inline-item"><a href="#" class="text-white">Дома</a></li>
 						<li class="list-inline-item"><span class="text-white">/</span></li>
-						<li class="list-inline-item"><a href="#" class="text-white-50">News details</a></li>
+						<li class="list-inline-item"><a href="#" class="text-white-50">Наши продукты</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,7 +32,7 @@
 				<div class="row">
 					<div class="col-lg-12 mb-5">
 						<div class="single-blog-item">
-							<img src="{{$news->image}}" alt="" class="img-fluid w-100">
+							<img src="{{$news->image}}" alt="" class="img-fluid w-100" style="height: 450px;">
 
 							<div class="blog-item-content mt-5">
 								<div class="blog-item-meta mb-3">

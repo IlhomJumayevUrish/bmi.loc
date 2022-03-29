@@ -10,14 +10,15 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Department Details</span>
-					<h1 class="text-capitalize mb-5 text-lg">Single Department</h1>
+					<span class="text-white">Наши продукты</span>
+					<h1 class="text-capitalize mb-5 text-lg">Что мы делаем
+					</h1>
 
-					<!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">Department Details</a></li>
-          </ul> -->
+					<ul class="list-inline breadcumb-nav">
+						<li class="list-inline-item"><a href="#" class="text-white">Дома</a></li>
+						<li class="list-inline-item"><span class="text-white">/</span></li>
+						<li class="list-inline-item"><a href="#" class="text-white-50">Наши продукты</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -30,7 +31,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="department-img">
-					<img src="{{$service->photo}}" alt="" class="img-fluid w-100">
+					<img src="{{$service->photo}}" alt="" class="img-fluid w-100" style="height: 450px;">
 				</div>
 			</div>
 		</div>

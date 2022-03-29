@@ -44,9 +44,8 @@ Route::get('department-single/{id}', [SrviceController::class,'service'])->name(
 Route::get('doctor-single/', function () {
     return view('frontend/doctor-single');
 })->name('doctor-single-page');
-Route::get('doctor/', function () {
-    return view('frontend/doctor');
-})->name('doctor-page');
+
+Route::get('product/{id}',[ProductController::class,'show'])->name('doctor-page');
 Route::get('service/',[SrviceController::class,'services'])->name('service-page');
 Route::post('user/contact/store/', [ContactController::class, 'store'])->name('contact-user-store');
 Route::get('blog/{id}', [NewsController::class, 'blog'])->name('blog-get');
