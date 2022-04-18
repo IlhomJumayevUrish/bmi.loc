@@ -7,13 +7,13 @@
 			<div class="col-md-12">
 				<div class="block text-center">
 					<span class="text-white">Наш сервис</span>
-					<h1 class="text-capitalize mb-5 text-lg">Что мы делаем
+					<h1 class="text-capitalize mb-5 text-lg">Услуги
 					</h1>
 
 					<ul class="list-inline breadcumb-nav">
-						<li class="list-inline-item"><a href="{{ route('service-page')}}" class="text-white">Home</a></li>
+						<li class="list-inline-item"><a href="{{ route('service-page')}}" class="text-white">Дом</a></li>
 						<li class="list-inline-item"><span class="text-white">/</span></li>
-						<li class="list-inline-item"><a href="#" class="text-white-50">Our services</a></li>
+						<li class="list-inline-item"><a href="#" class="text-white-50">Наши сервисы</a></li>
 					</ul>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
-					<h2>О Компании</h2>
+					<h2>Услуги</h2>
 
 				</div>
 			</div>

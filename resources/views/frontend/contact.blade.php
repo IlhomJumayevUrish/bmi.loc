@@ -10,8 +10,15 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Связаться с нами</span>
-					<h1 class="text-capitalize mb-5 text-lg">Связаться</h1>
+					<span class="text-white">Наш сервис</span>
+					<h1 class="text-capitalize mb-5 text-lg">Контакт
+					</h1>
+
+					<ul class="list-inline breadcumb-nav">
+						<li class="list-inline-item"><a href="{{ route('service-page')}}" class="text-white">Дом</a></li>
+						<li class="list-inline-item"><span class="text-white">/</span></li>
+						<li class="list-inline-item"><a href="#" class="text-white-50">Наши сервисы</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>

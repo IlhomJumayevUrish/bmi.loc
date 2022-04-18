@@ -34,7 +34,7 @@
                     <div class="col-lg-6">
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
                             <li class="list-inline-item"><a href="mailto:{{$about->email}}"><i class="icofont-support-faq mr-2"></i>{{$about->email}}</a></li>
-                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address {{$about->address}} </li>
+                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>{{$about->address}} </li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -51,7 +51,7 @@
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('index')}}">
-                    <img src="/frontend/images/logo.png" alt="" class="img-fluid">
+                    <img src="{{$about->logo}}" alt="" class="img-fluid">
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@
                 <div class="col-lg-4 mr-auto col-sm-6">
                     <div class="widget mb-5 mb-lg-0">
                         <div class="logo mb-4">
-                            <img src="/frontend/images/logo.png" alt="" class="img-fluid">
+                            <img src="{{$about->logo}}" alt="" class="img-fluid">
                         </div>
                         <p>
                             {{$about->title}}
@@ -118,21 +118,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-6 col-sm-6">
-                    <div class="widget mb-5 mb-lg-0">
-                        <h4 class="text-capitalize">Меню</h4>
-                        <div class="divider"></div>
 
-                        <ul class="list-unstyled footer-menu lh-35">
-                            <li> <a href="{{route('index')}}">Главная</a></li>
-                            <li><a href="{{ route('about-page')}}">O Нас</a></li>
-                            <li><a href="{{ route('service-page') }}">Наши сервисы</a></li>
-                            <li><a href="{{ route('contact-page')}}">Наши контакты</a></li>
-
-
-                        </ul>
-                    </div>
-                </div>
 
 
 
@@ -156,6 +142,21 @@
                             </div>
                             <h4 class="mt-2"><a href="tel:{{$about->phone}}">{{$about->phone}}</a></h4>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize">Меню</h4>
+                        <div class="divider"></div>
+
+                        <ul class="list-unstyled footer-menu lh-35">
+                            <li> <a href="{{route('index')}}">Главная</a></li>
+                            <li><a href="{{ route('about-page')}}">O Нас</a></li>
+                            <li><a href="{{ route('service-page') }}">Наши сервисы</a></li>
+                            <li><a href="{{ route('contact-page')}}">Наши контакты</a></li>
+
+
+                        </ul>
                     </div>
                 </div>
                 <div class="row">

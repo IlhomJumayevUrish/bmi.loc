@@ -8,10 +8,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
+					<span class="text-white">Наш сервис</span>
+					<h1 class="text-capitalize mb-5 text-lg"> О Компании </h1>
 					<ul class="list-inline breadcumb-nav">
-						<li class="list-inline-item"><a href="{{ route('index')}}" class="text-white">Дома</a></li>
+						<li class="list-inline-item"><a href="{{ route('service-page')}}" class="text-white">Дом</a></li>
 						<li class="list-inline-item"><span class="text-white">/</span></li>
-						<li class="list-inline-item"><a href="#" class="text-white-50">О нас</a></li>
+						<li class="list-inline-item"><a href="#" class="text-white-50">Наши сервисы</a></li>
 					</ul>
 				</div>
 			</div>
@@ -25,9 +27,8 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="doctor-img-block">
 					<img src="{{$about->image}}" alt="" class="img-fluid w-100">
-
+					<p>Следите за нами в социальных сетях</p>
 					<div class="info-block mt-4">
-						<p>Связаться с намиs</p>
 						@foreach($contacts as $contact)
 						<li class="list-inline-item"><a href="{{$contact->url}}" style="padding-top: 0;">
 								<div class="testimonial-thumb">
