@@ -80,17 +80,17 @@ $sidebarClass = (!empty($sidebarTransparent)) ? 'sidebar-transparent' : '';
 				</a>
 				<ul class="sub-menu" style="display: block;">
 					<li class=" ">
-						<a href="{{ route('category-index')}}">Categories</a>
+						<a href="{{ route('category-index')}}">Категории</a>
 					</li>
 					<li class=" ">
-						<a href="{{ route('country-index')}}">Countries</a>
+						<a href="{{ route('country-index')}}">Страны</a>
 					</li>
 					<li class=" ">
-						<a href="{{ route('region-index')}}">Regions</a>
+						<a href="{{ route('region-index')}}">Регионы</a>
 
 					</li>
 					<li class=" ">
-						<a href="{{ route('district-index')}}">Districts</a>
+						<a href="{{ route('district-index')}}">Районы</a>
 					</li>
 				</ul>
 			</li>
